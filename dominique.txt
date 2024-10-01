@@ -1,1 +1,9 @@
-test
+October 1
+Today, Mirella and I worked together to start drafting our website design on Canva. 
+As the frontend specialist, I want to plan everything I can for the UI as soon as 
+possible so neither of us have to worry about the details down the road. I am 
+responsible for the UI and ensuring a good user experience. This will include
+responsive resign and form validation and RegEx. The biggest challenge in the 
+beginning was just planning and mapping out the website. My goal is to learn
+more about making simple yet effective page that doesn't get too convuluted.
+Tomorrow, I will start drafting a timeline and finish the page mock up.
