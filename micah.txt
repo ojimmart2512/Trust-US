@@ -1,2 +1,11 @@
 Hi, Micah Here.
 Did it work?
+
+
+10-1-24
+My role is the Quality Assurance.
+The responsibilites of my role is to test the website, find any bugs or anything that is not how it is supposed to be, and let the rest of the team know.
+I have gone ahead and joined the project, whilst also making my own file.
+The biggest challenge was uploading this current file.
+My goals for this project is to expand my portfolio whilst also learning more about coding.
+I will help out with website development tomorrow whilst also testing all of our changes.
