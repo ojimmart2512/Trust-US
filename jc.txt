@@ -1,1 +1,6 @@
-bleh
+Database Specialist & Project Coordinator?
+I honestly struggled to try and push my stuff into the actual repo but it eventually happened. 
+The overall goals for the project is to have something presentable and functionable. Emaphasis on the
+functionable. This website seems like a lot but that's the upside for when we finish it. We can say that
+we were able to finish it.
+I'll try to help Omar in anyway I can with the basic js and, if needed, try to help with the css/design stuff.
