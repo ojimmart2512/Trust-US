@@ -1,1 +1,0 @@
-stuff inside text.txt
