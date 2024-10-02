@@ -1,2 +1,3 @@
 omar jim
 10/1/24 : Backend person, I need to add the package files to here and tommorow I hope i can get started on coding >:)
+10/2/24 : installing the node modules folder, I am using the super squad project as a template for the js, canva

@@ -1,5 +1,7 @@
 [
     {
-        "username" : "test1"
+        "name" : "test1",
+        "password" : "password123",
+        "PIN" : "123"
     }
 ]
