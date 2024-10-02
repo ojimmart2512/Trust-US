@@ -1,6 +1,13 @@
+10/01
 Database Specialist & Project Coordinator?
 I honestly struggled to try and push my stuff into the actual repo but it eventually happened. 
 The overall goals for the project is to have something presentable and functionable. Emaphasis on the
 functionable. This website seems like a lot but that's the upside for when we finish it. We can say that
 we were able to finish it.
 I'll try to help Omar in anyway I can with the basic js and, if needed, try to help with the css/design stuff.
+
+10/02
+The challenges I faced were just realizing how much work may go into actually being able to deposit and withdraw money all the while
+being able to display it. That's a work in progress though. I'm using w3 schools to help me refresh on some skills. I don't really
+have a resrouce to be able to collaborate with my teammates, we are currently just checking up on one another and we also have the standups 
+to help everyone know what everyone else is doing.
