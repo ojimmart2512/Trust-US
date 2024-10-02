@@ -1,1 +1,9 @@
-hi it's mirella
+Journal
+ - 1st October, 2024
+    - My role is Design Specialist 
+    - The responsibilities of my role is to help design the layout of the page and as well as helping the frontend
+       specialist
+    - I worked on creating my own branch, creating my own token, and started the layout of the website
+    -The biggest challange today was getting my branch up and pushing everyhting created into the main branch
+    - my goals for the project is to fully collaberate with my team
+    - trying to finish up the layout of the website.
