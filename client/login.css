@@ -1,0 +1,28 @@
+* {
+    border:0;
+    padding:0;
+}
+
+.nav {
+    background-color: black;
+    overflow:hidden;
+}
+
+.nav a {
+    color:white;
+}
+
+body {
+    background-image: url('background.jpg');
+}
+
+.sign-in {
+    background-color: blue;
+    width:50%;
+    margin:auto;
+    height:40%;
+}
+
+input {
+    margin: auto;
+}
