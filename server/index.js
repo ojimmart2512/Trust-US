@@ -27,7 +27,7 @@ app.get('/users', async (req, res) => {
         const data = await fs.readFile(dataPath, 'utf-8');
 
         const customers = JSON.parse(data);
-        if (!costumers) {
+        if (!customers) {
             throw new Error("Error no users available");
         }
         res.status(200).json(customers);
@@ -70,7 +70,7 @@ app.post('/submit-form', async (req, res) => {
         }
 
         // Save updated customers
-        await fs.writeFile(dataPath, JSON.stringify(customers, null 2));
+        await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
         res.redirect('/form');
     } catch (error) {
         console.error('Error processing form:', error);
