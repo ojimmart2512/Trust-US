@@ -41,6 +41,12 @@ app.get('/users', async (req, res) => {
 app.get('/about', (req, res) => {
     res.sendFile('pages/about.html', { root: serverPublic });
 });
+app.get('/sign-in'), (req, res) => {
+    res.sendFile('/client/src/sign-in.html', { root: serverPublic });
+}
+app.get('/'), (req, res) => {
+    res.sendFile('/client/src/img', { root: serverPublic });
+}
 
 //Home Route
 app.get('/home', (req, res) => {
@@ -65,7 +71,7 @@ app.post('/submit-form', async (req, res) => {
             console.error('Error reading user data:', error);
             customers = [];
         }
-        
+
         // Find or Create user
         let user = customers.find(u => u.name === name && u.password === password && u.PIN === PIN) //UPDATE THIS
         if (user) {
@@ -113,13 +119,13 @@ app.put('/update-user/:currentName/:currentPassword/:currentPIN', async (req, re
 app.delete('/user/:name/:password/:PIN', async (req, res) => {
     try {
         const { name, password, PIN } = req.params
-         // initalize an empty array of 'users'
+        // initalize an empty array of 'users'
         let customers = [];
         // try to read the users.json file and cache as data
         try {
             const data = await fs.readFile(dataPath, 'utf-8');
             customers = JSON.parse(data);
-        } catch (error) { 
+        } catch (error) {
             return res.status(404).send('Customers data not found')
         }
         // cache the userIndex based on a matching name and email

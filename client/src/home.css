@@ -1,0 +1,79 @@
+
+.sideNav {
+    height: 100%;
+    width: 350px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #fff;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border: 1px solid blue;
+    
+}
+
+.sideNav h1{
+    text-align: center;
+}
+
+.sideNav a {
+    border: 1px solid red;
+    padding: 22px;
+    width: 60%;
+    height: 1.1%;
+    margin-left: 20px;
+    margin-top: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: grey;
+    display: block;
+    border: none;
+    cursor: pointer;
+    border-radius: 32px;
+
+}
+
+.sideNav a:hover{
+    height: 10px;
+    color: white;
+    background: #386392;
+}
+
+.wrapper {
+ margin-left: 350px;
+}
+
+@media screen and (max-height: 450px){
+    .sideNav {padding-top: 15px;}
+}
+
+div.wrapper{
+    margin-left:400px;
+}
+
+div.welcome p{
+    margin-left: 5%;
+}
+
+div.wrapper h2 {
+    margin-top: 5%;
+}
+
+div.user-checking{
+    background-color: lightgrey;
+    margin-left: 5%;
+    width: 78%;
+}
+
+div.transactions{
+    background: lightgrey;
+     margin-left: 5%;
+     width: 78%;
+}
+
+div.title p{
+    border: 1px solid red;
+    width: 15%;
+    text-align: center;
+}
