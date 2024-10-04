@@ -12,3 +12,9 @@ Journal
    - A challange that arose today is trying to remeber how to use css since it's been a whiel since i last used it
    - One resource that I'm using to learn is w3schools 
    - One resource i'm using to collaborate better with my teammates is canva
+
+-3rd October, 2024
+   - I do believe I'm giving my best effort in the team
+   - One way I can improve my site by the end of the week is finishing all of the websites 
+   -One technical challenge that is currently keeping me from moving forward is how to position stuff
+   - One way I can supprot my team is finishing up my part so they can implement their code to the website as well as helping them when needed
