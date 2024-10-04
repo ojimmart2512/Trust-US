@@ -110,7 +110,7 @@ app.put('/update-user/:currentName/:currentPassword/:currentPIN', async (req, re
         res.status(500).send('An error occurred while updating the customer.');
     }
 });
-app.delete('/user/:name/:superpower/:universe', async (req, res) => {
+app.delete('/user/:name/:password/:PIN', async (req, res) => {
     try {
         const { name, password, PIN } = req.params
         // initalize an empty array of 'users'
@@ -123,12 +123,7 @@ app.delete('/user/:name/:superpower/:universe', async (req, res) => {
             return res.status(404).send('Customers data not found')
         }
         // cache the userIndex based on a matching name and email
-        const userIndex = customers.findIndex(user => user.name === name && user.password === password && user.PIN === PIN);
-
-
-        // ended off here 10/2/2024
-
-
+        const userIndex = customers.findIndex(user => user.name === name && user.password === password && user.PIN === PIN); 
         console.log(userIndex);
         if (userIndex === -1) {
             return res.status(404).send('User not found');
@@ -136,13 +131,21 @@ app.delete('/user/:name/:superpower/:universe', async (req, res) => {
         // splice the users array with the intended delete name and email
         superheros.splice(userIndex, 1);
         try {
-            await fs.writeFile(dataPath, JSON.stringify(superheros, null, 2));
+            await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
         } catch (error) {
             console.error("Failed to write to database");
         }
         // send a success deleted message
-        res.send('User deleted successfully');
+        res.send('Customer deleted successfully');
     } catch (error) {
         res.status(500).send('There was an error deleting user');
     }
 });
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+        // ended off here 10/2/2024
+
