@@ -48,6 +48,12 @@ app.get('/'), (req, res) => {
     res.sendFile('/client/src/img', { root: serverPublic });
 }
 
+//Home Route
+app.get('/home', (req, res) => {
+    res.sendFile('pages/home.html', { root: serverPublic });
+});
+
+
 // Form route
 app.get('/form', (req, res) => {
     res.sendFile('pages/form.html', { root: serverPublic });
