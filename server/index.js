@@ -59,7 +59,7 @@ app.post('/submit-form', async (req, res) => {
             console.error('Error reading user data:', error);
             customers = [];
         }
-        
+
         // Find or Create user
         let user = customers.find(u => u.name === name && u.password === password && u.PIN === PIN) //UPDATE THIS
         if (user) {
@@ -70,7 +70,7 @@ app.post('/submit-form', async (req, res) => {
         }
 
         // Save updated customers
-        await fs.writeFile(dataPath, JSON.stringify(customers, null 2));
+        await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
         res.redirect('/form');
     } catch (error) {
         console.error('Error processing form:', error);
@@ -107,17 +107,17 @@ app.put('/update-user/:currentName/:currentPassword/:currentPIN', async (req, re
 app.delete('/user/:name/:superpower/:universe', async (req, res) => {
     try {
         const { name, password, PIN } = req.params
-         // initalize an empty array of 'users'
+        // initalize an empty array of 'users'
         let customers = [];
         // try to read the users.json file and cache as data
         try {
             const data = await fs.readFile(dataPath, 'utf-8');
             customers = JSON.parse(data);
-        } catch (error) { 
+        } catch (error) {
             return res.status(404).send('Customers data not found')
         }
         // cache the userIndex based on a matching name and email
-        const userIndex = customers.findIndex(user => user.name === name && user.password === password && user.PIN === PIN); 
+        const userIndex = customers.findIndex(user => user.name === name && user.password === password && user.PIN === PIN);
 
 
         // ended off here 10/2/2024
