@@ -159,85 +159,85 @@ app.listen(PORT, () => {
 
 // ended off here 10/2/2024
 
-let value = 0;
-const valueElement = document.getElementById("value");
+// let value = 0;
+// const valueElement = document.getElementById("value");
 
-const deposit = document.getElementById("deposit");
-const withdraw = document.getElementById("withdraw");
+// const deposit = document.getElementById("deposit");
+// const withdraw = document.getElementById("withdraw");
 
-const fiveButton = document.getElementById("five");
-const tenButton = document.getElementById("ten");
-const twentyButton = document.getElementById("twenty");
-const fiftyButton = document.getElementById("fifty");
-const oneHundredButton = document.getElementById("one-hundred");
-
-
-
-function popupFn() {
-    document.getElementById(
-        "overlay"
-    ).style.display = "block";
-    document.getElementById(
-        "popupDialog"
-    ).style.display = "block";
-}
-
-function closeFn() {
-    document.getElementById(
-        "overlay"
-    ).style.display = "none";
-    document.getElementById(
-        "popupDialog"
-    ).style.display = "none";
-}
-
-deposit.addEventListener("click", () => {
-    if (deposit) {
-        fiveButton.addEventListener("click", () => {
-            value += 5;
-            valueElement.textContent = value;
-        })
-        tenButton.addEventListener("click", () => {
-            value += 10;
-            valueElement.textContent = value;
-        })
-        twentyButton.addEventListener("click", () => {
-            value += 20;
-            valueElement.textContent = value;
-        })
-        fiftyButton.addEventListener("click", () => {
-            value += 50;
-            valueElement.textContent = value;
-        })
-        oneHundredButton.addEventListener("click", () => {
-            value += 100;
-            valueElement.textContent = value;
-        })
-    }
-});
+// const fiveButton = document.getElementById("five");
+// const tenButton = document.getElementById("ten");
+// const twentyButton = document.getElementById("twenty");
+// const fiftyButton = document.getElementById("fifty");
+// const oneHundredButton = document.getElementById("one-hundred");
 
 
-withdraw.addEventListener("click", () => {
-    if (withdraw) {
-        fiveButton.addEventListener("click", () => {
-            value -= 5;
-            valueElement.textContent = value;
-        })
-        tenButton.addEventListener("click", () => {
-            value -= 10;
-            valueElement.textContent = value;
-        })
-        twentyButton.addEventListener("click", () => {
-            value -= 20;
-            valueElement.textContent = value;
-        })
-        fiftyButton.addEventListener("click", () => {
-            value -= 50;
-            valueElement.textContent = value;
-        })
-        oneHundredButton.addEventListener("click", () => {
-            value -= 100;
-            valueElement.textContent = value;
-        })
-    }
-})
+
+// function popupFn() {
+//     document.getElementById(
+//         "overlay"
+//     ).style.display = "block";
+//     document.getElementById(
+//         "popupDialog"
+//     ).style.display = "block";
+// }
+
+// function closeFn() {
+//     document.getElementById(
+//         "overlay"
+//     ).style.display = "none";
+//     document.getElementById(
+//         "popupDialog"
+//     ).style.display = "none";
+// }
+
+// deposit.addEventListener("click", () => {
+//     if (deposit) {
+//         fiveButton.addEventListener("click", () => {
+//             value += 5;
+//             valueElement.textContent = value;
+//         })
+//         tenButton.addEventListener("click", () => {
+//             value += 10;
+//             valueElement.textContent = value;
+//         })
+//         twentyButton.addEventListener("click", () => {
+//             value += 20;
+//             valueElement.textContent = value;
+//         })
+//         fiftyButton.addEventListener("click", () => {
+//             value += 50;
+//             valueElement.textContent = value;
+//         })
+//         oneHundredButton.addEventListener("click", () => {
+//             value += 100;
+//             valueElement.textContent = value;
+//         })
+//     }
+// });
+
+
+// withdraw.addEventListener("click", () => {
+//     if (withdraw) {
+//         fiveButton.addEventListener("click", () => {
+//             value -= 5;
+//             valueElement.textContent = value;
+//         })
+//         tenButton.addEventListener("click", () => {
+//             value -= 10;
+//             valueElement.textContent = value;
+//         })
+//         twentyButton.addEventListener("click", () => {
+//             value -= 20;
+//             valueElement.textContent = value;
+//         })
+//         fiftyButton.addEventListener("click", () => {
+//             value -= 50;
+//             valueElement.textContent = value;
+//         })
+//         oneHundredButton.addEventListener("click", () => {
+//             value -= 100;
+//             valueElement.textContent = value;
+//         })
+//     }
+// })

@@ -1,11 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>form page</title>
-</head>
-<body>
-    
-</body>
+    <style>
+      /* #popupDialog {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      #overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- <a href="index.html">home</a>
+
+    <h1>Value: <span id="value">0</span></h1> -->
+
+    <!-- <div id="stuff">
+      <button onclick="popupFn()">withdraw/desposit</button>
+      <div id="overlay"></div>
+      <div id="popupDialog">
+        <button id="deposit">deposit</button>
+        <button id="withdraw">withdraw</button>
+        <button id="five">$5</button>
+        <button id="ten">$10</button>
+        <button id="twenty">$20</button>
+        <button id="fifty">$50</button>
+        <button id="one-hundred">$100</button>
+
+        <button onclick="closeFn()">Close</button>
+      </div>
+    </div>
+    <script defer>
+      let value = 0;
+      const valueElement = document.getElementById("value");
+      const deposit = document.getElementById("deposit");
+      const withdraw = document.getElementById("withdraw");
+      const fiveButton = document.getElementById("five");
+      const tenButton = document.getElementById("ten");
+      const twentyButton = document.getElementById("twenty");
+      const fiftyButton = document.getElementById("fifty");
+      const oneHundredButton = document.getElementById("one-hundred");
+
+      function popupFn() {
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("popupDialog").style.display = "block";
+      }
+
+      function closeFn() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("popupDialog").style.display = "none";
+      }
+
+      deposit.addEventListener("click", () => {
+        if (deposit) {
+          fiveButton.addEventListener("click", () => {
+            value += 5;
+            valueElement.textContent = value;
+          });
+          tenButton.addEventListener("click", () => {
+            value += 10;
+            valueElement.textContent = value;
+          });
+          twentyButton.addEventListener("click", () => {
+            value += 20;
+            valueElement.textContent = value;
+          });
+          fiftyButton.addEventListener("click", () => {
+            value += 50;
+            valueElement.textContent = value;
+          });
+          oneHundredButton.addEventListener("click", () => {
+            value += 100;
+            valueElement.textContent = value;
+          });
+        }
+      });
+
+      withdraw.addEventListener("click", () => {
+        if (withdraw) {
+          fiveButton.addEventListener("click", () => {
+            value -= 5;
+            valueElement.textContent = value;
+          });
+          tenButton.addEventListener("click", () => {
+            value -= 10;
+            valueElement.textContent = value;
+          });
+          twentyButton.addEventListener("click", () => {
+            value -= 20;
+            valueElement.textContent = value;
+          });
+          fiftyButton.addEventListener("click", () => {
+            value -= 50;
+            valueElement.textContent = value;
+          });
+          oneHundredButton.addEventListener("click", () => {
+            value -= 100;
+            valueElement.textContent = value;
+          });
+        }
+      }); -->
+    <!-- </script> -->
+  </body>
 </html>
