@@ -49,9 +49,9 @@ app.get('/'), (req, res) => {
 }
 
 //Home Route
-app.get('/home', (req, res) => {
-    res.sendFile('pages/home.html', { root: serverPublic });
-});
+// app.get('/home', (req, res) => {
+//     res.sendFile('pages/home.html', { root: serverPublic });
+// });
 
 
 // Form route

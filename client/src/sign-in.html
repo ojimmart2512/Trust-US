@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <title>Sign In </title>
     <style>
         * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,7 +21,7 @@ body, html {
 }
 
 .background {
-    background-image: url('./src/img/Image-transformed.jpeg'); 
+    background-image: url('/img/Image-transformed.jpeg'); 
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -25,16 +29,14 @@ body, html {
     justify-content: center;
     align-items: center;
 }
-.logo{
-    color:white;
-    font-size: 2rem;
-    /* font-size: 2rem; */
+.logo img{
     top: 0;
     left: 0;
     position: absolute;
-    margin-top: 2%;
-    margin-left: 2%;
-    width: 100%;
+    height: 130px
+    /* margin-top: 2%;
+    margin-left: 2%; */
+    /* width: 100%; */
     /* border: 1px solid red; */
 }
 
@@ -115,9 +117,9 @@ button {
 
     <div class="background">
         <div class="logo">
-            <p>TRUST-US</p>
+            <img src="/img/trust-us-white-logo.png" alt="">
         </div>
-        <form class="form" action="">
+        <form class="form" id="form">
             <p>Please Enter Your Details</p>
             <h1>Welcome Back</h1>
             <!-- <label for="email">Email:</label> -->
@@ -137,4 +139,5 @@ button {
         </form>
     </div>
 </body>
+<script src="./sign-in.js"></script>
 </html>
