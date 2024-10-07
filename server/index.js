@@ -27,7 +27,7 @@ app.get('/users', async (req, res) => {
         const data = await fs.readFile(dataPath, 'utf-8');
 
         const customers = JSON.parse(data);
-        if (!costumers) {
+        if (!customers) {
             throw new Error("Error no users available");
         }
         res.status(200).json(customers);
@@ -41,6 +41,18 @@ app.get('/users', async (req, res) => {
 app.get('/about', (req, res) => {
     res.sendFile('pages/about.html', { root: serverPublic });
 });
+app.get('/sign-in'), (req, res) => {
+    res.sendFile('/client/src/sign-in.html', { root: serverPublic });
+}
+app.get('/'), (req, res) => {
+    res.sendFile('/client/src/img', { root: serverPublic });
+}
+
+//Home Route
+app.get('/home', (req, res) => {
+    res.sendFile('pages/home.html', { root: serverPublic });
+});
+
 
 // Form route
 app.get('/form', (req, res) => {
@@ -104,7 +116,7 @@ app.put('/update-user/:currentName/:currentPassword/:currentPIN', async (req, re
         res.status(500).send('An error occurred while updating the customer.');
     }
 });
-app.delete('/user/:name/:superpower/:universe', async (req, res) => {
+app.delete('/user/:name/:password/:PIN', async (req, res) => {
     try {
         const { name, password, PIN } = req.params
         // initalize an empty array of 'users'
@@ -122,7 +134,6 @@ app.delete('/user/:name/:superpower/:universe', async (req, res) => {
 
         // ended off here 10/2/2024
 
-
         console.log(userIndex);
         if (userIndex === -1) {
             return res.status(404).send('User not found');
@@ -130,13 +141,21 @@ app.delete('/user/:name/:superpower/:universe', async (req, res) => {
         // splice the users array with the intended delete name and email
         superheros.splice(userIndex, 1);
         try {
-            await fs.writeFile(dataPath, JSON.stringify(superheros, null, 2));
+            await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
         } catch (error) {
             console.error("Failed to write to database");
         }
         // send a success deleted message
-        res.send('User deleted successfully');
+        res.send('Customer deleted successfully');
     } catch (error) {
         res.status(500).send('There was an error deleting user');
     }
 });
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+        // ended off here 10/2/2024
+

@@ -7,3 +7,8 @@ responsive resign and form validation and RegEx. The biggest challenge in the
 beginning was just planning and mapping out the website. My goal is to learn
 more about making simple yet effective page that doesn't get too convuluted.
 Tomorrow, I will start drafting a timeline and finish the page mock up.
+
+October 2 
+No new challenges arose today. To research and refresh myself on styling, I used 
+W3Schools. To collaborate better with my teammates, I created page mockups for
+each page that will be created so make styling more efficient.

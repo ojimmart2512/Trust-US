@@ -23,3 +23,18 @@ Q2: What is 1 resource you are using to learn/research?
 Google chrome.
 Q3: What is 1 resource you are using to collaborate better with your teammates?
 Canva
+
+10-3-24
+Changes I made for today: Fixed a few errors
+
+Q1:
+I believe that I could put in more effort, but for the current moment, there is not much more I can do due to my role.
+Q2:
+Make an actual functioning site
+Q3:
+NPM being difficult
+Q4:
+During the first half of class, focus on researching important info that we may need, and for the 2nd half, look into our code to search for any and all mistakes
+
+10-4-24
+Changes I made for today: Made it so that we can go to the different pages through the index.html
