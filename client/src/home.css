@@ -94,7 +94,7 @@ body{
   .navigation .profile {
     font-size: 2.3rem;
     cursor: pointer;
-    margin-top: 13rem;
+    margin-top: 12rem;
     margin-left: 15px;
     position: absolute;
     /* border:1px solid red; */
@@ -149,7 +149,7 @@ body{
     min-height: 100vh;
     background: white;
     transition: 0.5s;
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
   }
   .main.active {
     width: calc(100% - 80px);
@@ -179,7 +179,7 @@ body{
   /*welcome container*/
   .welcome{
     /* width: 70%; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     
 }
 .welcome h1 {
@@ -192,7 +192,7 @@ body{
     margin-top: 10px;
 }
 .welcome img{
-    height: 250px;
+    height: 290px;
     margin-left: 5rem;
     margin-top: 20px;
 }
@@ -211,6 +211,7 @@ body{
    
 }
 
+
 .balance .recentBalance{
     position: relative;
     display: grid;
@@ -227,12 +228,33 @@ body{
     align-items: flex-start;
     /* padding: 20px; */
 }
+.balance .recentBalance {
+    min-height: 250px;
+    /* border: 1px solid red; */
+}
+.balance .balanceHeader h2{
+    margin-top: 30px;
+}
 .cardBalance .name{
-    margin-top: 5rem;
+    margin-top: 25px;
+    padding-left: 30px;
     font-weight: 200;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 
+.cardBalance .secPart{
+    font-size: 1.2rem;
+    border: 1px solid red;
+    margin-top: 15px; 
+    margin-left: 9rem;
+}
+.cardBalance .btnBal{
+    border: 1px solid orange;
+}
+.cardBalance .currentInfo{
+    border: 1px solid red;
+    
+}
 
 
 /* Transactions */
