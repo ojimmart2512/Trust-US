@@ -19,20 +19,20 @@
               <!-- <span class="icon">
                         <i class='bx bxs-home-smile'></i>
                     </span> -->
-              <span class="title">
-                <img src="/img/trust-us-white-logo.png" alt="" />
-              </span>
-            </a>
-          </li>
+                    <span class="title">
+                        <img src="./img/trust-us-white-logo.png" alt="">
+                    </span>
+                  </a>  
+                </li>
 
-          <li>
-            <a href="">
-              <span class="icon">
-                <i class="bx bxs-home-smile"></i>
-              </span>
-              <span class="title">Home</span>
-            </a>
-          </li>
+                <li>
+                    <a href="home.html">
+                      <span class="icon">
+                        <i class='bx bxs-home-smile'></i>
+                      </span>
+                      <span class="title">Home</span>
+                    </a>  
+                  </li>
 
           <li>
             <a href="">
@@ -43,14 +43,14 @@
             </a>
           </li>
 
-          <li>
-            <a href="">
-              <span class="icon">
-                <i class="bx bx-transfer"></i>
-              </span>
-              <span class="title">Transfer Funds</span>
-            </a>
-          </li>
+                  <li>
+                    <a href="./deposit.html">
+                      <span class="icon">
+                        <i class='bx bx-transfer'></i>
+                      </span>
+                      <span class="title">Transfer Funds</span>
+                    </a>  
+                  </li>
 
           <li>
             <a href="">
@@ -61,23 +61,23 @@
             </a>
           </li>
 
-          <li>
-            <a href="">
-              <span class="icon">
-                <i class="bx bxs-cog"></i>
-              </span>
-              <span class="title">Settings</span>
-            </a>
-          </li>
+                  <li>
+                    <a href="./action.html">
+                      <span class="icon">
+                        <i class='bx bxs-cog'></i>
+                      </span>
+                      <span class="title">Settings</span>
+                    </a>  
+                  </li>
 
-          <li>
-            <a href="">
-              <span class="icon">
-                <i class="bx bx-chevron-right"></i>
-              </span>
-              <span class="title">Logout</span>
-            </a>
-          </li>
+                  <li>
+                    <a href="">
+                      <span class="icon">
+                        <i class='bx bx-chevron-right logoutButton'></i>
+                      </span>
+                      <span class="title">Logout</span>
+                    </a>  
+                  </li>
 
           <a href="">
             <span class="icon profile">
@@ -132,11 +132,41 @@
           </div>
         </div>
 
-        <div class="details">
-          <div class="recentTransactions">
-            <div class="cardHeader">
-              <h2>Recent Transactions</h2>
-              <a href="" class="btn"> View All</a>
+            <div class="balance">
+                <div class="recentBalance">
+                    <div class="balanceHeader">
+                        <h2>Your Balance</h2>
+                    </div>
+
+                    <div class="cardBalance">
+
+                        <div class="currentInfo">
+                         <h2 class="name">Bank Account : Checkings</h2>
+                         <div class="secPart">
+                                <img src="./img/circle.png" alt="">
+                                <div class="money">
+                                  <span class="currentBalance"> Total Current Balance:</span>
+
+                                  <div class="lana">
+                                  <span class="total">$11,000</span>
+                                  </div>
+                                </div>
+                        </div>
+                    </div>
+                      
+                        <div class="btnBal">
+                        <div class="thirdPart">
+                          <a href="./deposit.html">
+                                <button type="button"> Withdraw</button> 
+                                <button type="button"> Deposit</button> 
+                          </a>
+                         </div>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
             </div>
 
             <table>
@@ -202,10 +232,12 @@
       let navigation = document.querySelector(".navigation");
       let main = document.querySelector(".main");
 
-      toggle.onclick = function () {
-        navigation.classList.toggle("active");
-        main.classList.toggle("active");
-      };
+        toggle.onclick = function () {
+            navigation.classList.toggle("active");
+            main.classList.toggle("active");
+
+            
+        };
     </script>
   </body>
 </html>

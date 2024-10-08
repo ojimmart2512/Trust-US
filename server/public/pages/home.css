@@ -1,0 +1,455 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container{
+  position: relative;
+  width: 100%;
+}
+.title img{
+  height: 70px;
+  margin-left: 50px;
+}
+
+.navigation{
+  position: fixed;
+  width: 300px;
+  height:100%;
+  background-color: #2c4d71;
+  border-left: 10px solid #2c4d71;
+  overflow: hidden;
+}
+
+.navigation span {
+  font-size: 20px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: white;
+}
+.navigation ul li:nth-child(1){
+  margin-bottom: 40px;
+  pointer-events: none;
+} 
+
+.navigation ul li a{
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: white;
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: #2c4d71;
+} 
+
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+.navigation ul li a .icon i {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.navigation .profile {
+  font-size: 2.3rem;
+  cursor: pointer;
+  margin-top: 12rem;
+  margin-left: 15px;
+  position: absolute;
+  /* border:1px solid red; */
+  width: 20%;
+  list-style: none;
+  color: white;
+}
+
+/* .navigation .menu {
+  border: 1px solid red;
+  color: black;
+  font-size: 2.3rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  
+} */
+
+/*curve*/
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+content: "";
+position: absolute;
+right: 0;
+top: -50px;
+width: 50px;
+height: 50px;
+background-color: transparent;
+border-radius: 50%;
+box-shadow: 35px 35px 0 10px white;
+pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+content: "";
+position: absolute;
+right: 0;
+bottom: -50px;
+width: 50px;
+height: 50px;
+background-color: transparent;
+border-radius: 50%;
+box-shadow: 35px -35px 0 10px white;
+pointer-events: none;
+} 
+/* main container */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  width: 70%;
+  left: 330px;
+  min-height: 100vh;
+  background: white;
+  transition: 0.5s;
+  /* border: 1px solid orange; */
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+/*welcome container*/
+.welcome{
+  /* width: 70%; */
+  /* border: 1px solid red; */
+  
+}
+.welcome h1 {
+  margin-left: 3rem;
+}
+.welcome p {
+  margin-left: 6rem;
+  font-size: 1.1rem;
+  color: grey;
+  margin-top: 10px;
+}
+.welcome img{
+  height: 290px;
+  margin-left: 5rem;
+  margin-top: 20px;
+  width: 89%;
+}
+/* .welcome img.active{
+  width: calc(100% - 900px);
+  left: 80px;
+} */
+
+
+
+/* Balance */
+.balance{
+ position:relative;
+ width:100%;
+ padding: 50px;
+ 
+}
+
+.balance .recentBalance{
+  position: relative;
+  display: grid;
+  min-height: 130px;
+}
+
+.balance .cardBalance {
+  background: lightgrey;
+  margin-left: 2rem;
+}
+
+.balance .balanceHeader {
+  display: flex;
+  align-items: flex-start;
+  /* padding: 20px; */
+}
+.balance .recentBalance {
+  min-height: 290px;
+  /* border: 1px solid red; */
+}
+.balance .balanceHeader h2{
+  margin-top: 30px;
+}
+
+.cardBalance {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.cardBalance .name{
+  margin-top: 25px;
+  padding-left: 30px;
+  font-weight: 200;
+  font-size: 1.6rem;
+}
+
+.cardBalance .secPart {
+   display: flex;
+   gap: 25px;
+   margin-top: 15px;
+   margin-left: 30px;
+   /* border: 1px solid yellowgreen; */
+}
+
+.cardBalance .secPart .money{
+  font-size: 1.3rem;
+  font-weight: 200;
+  /* border: 1px solid red; */
+  /* margin-top: 15px; 
+  margin-left: 9rem; */
+}
+.cardBalance .secPart .lana{
+  font: 1.5em sans-serif;
+  margin-top: 30px;
+  text-align: center;
+ 
+}
+.cardBalance .secPart img{
+  /* border: 1px solid blue; */
+  
+  
+}
+.cardBalance .btnBal{
+  /* border: 1px solid orange; */
+  width:50%;
+
+}
+.cardBalance .btnBal button {
+  width: 40%;
+  padding: 10px;
+  font-size: 15px;
+  margin-left: 5%;
+  margin-top: 25%;
+   background-color: white;
+   color:#2c4d71;
+   border: none;
+   cursor: pointer;
+
+}
+.cardBalance .currentInfo{
+  /* border: 1px solid red; */
+  margin-bottom: 20px;
+  
+}
+
+
+/* Transactions */
+.details {
+position: relative;
+width: 100%;
+padding: 20px;
+/* display: grid;
+/* grid-template-columns: 2fr 1fr;
+grid-gap: 30px; */ 
+}
+.details .recentTransactions {
+  position: relative;
+  display: grid;
+  min-height: 350px;
+  background: white;
+  padding: 20px;
+  /* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px; */
+}
+
+.details .cardHeader {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cardHeader h2 {
+ font-weight: 600;
+ color: black;
+}
+
+.cardHeader .btn{
+  position: relative;
+  padding: 5px 10px;
+  background: #2c4d71;
+  text-decoration: none;
+  color: white;
+  border-radius: 6px;
+}
+
+.details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  padding: 20px;
+  /* border: 1px solid yellow; */
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.details table thead td {
+font-weight: 600;
+}
+.details .recentTransactions table tr {
+  /* background: lightgray;*/
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  margin: 2rem;
+  /* border: 1px solid blue;  */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+color: black;
+}
+.details .recentTransactions table tr:last-child {
+border-bottom: none;
+}
+/* .details .recentTransactions table tbody tr:hover {
+background: blue;
+color: white;
+} */
+.details .recentTransactions table tr td {
+  
+padding: 10px;
+}
+.details .recentTransactions table tbody tr td{
+  /* border: 1px solid red; */
+  background: white;
+}
+.details .recentTransactions table tr td:last-child {
+text-align: end;
+}
+.details .recentTransactions table tr td:nth-child(2) {
+text-align: end;
+}
+.details .recentTransactions table tr td:nth-child(3) {
+text-align: center;
+}
+.status.done {
+padding: 2px 4px;
+background: #8de02c;
+color: white;
+border-radius: 4px;
+font-size: 14px;
+font-weight: 500;
+}
+.status.pending {
+padding: 2px 4px;
+background: #e9b10a;
+color: white;
+border-radius: 4px;
+font-size: 14px;
+font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 991px) {
+  .navigation {
+    left: -300px;
+  }
+  .navigation.active {
+    width: 300px;
+    left: 0;
+  }
+  .main {
+    width: 100%;
+    left: 0;
+  }
+  .main.active {
+    left: 300px;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+
+  .navigation {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+  .navigation.active {
+    width: 100%;
+    left: 0;
+  }
+  .toggle {
+    z-index: 10001;
+  }
+  .main.active .toggle {
+    color: #fff;
+    position: fixed;
+    right: 0;
+    left: initial;
+  }
+}
+
+
+
+
