@@ -28,7 +28,7 @@ Canva
 Changes I made for today: Fixed a few errors
 
 Q1:
-I believe that I could put in more effort, but for the current moment, there is not much more I can do due to my role.
+I believe that I could put in more effort, but for the current moment, there is not much more I can do due to my role and my lack of knowledge.
 Q2:
 Make an actual functioning site
 Q3:
@@ -38,3 +38,21 @@ During the first half of class, focus on researching important info that we may 
 
 10-4-24
 Changes I made for today: Made it so that we can go to the different pages through the index.html
+
+Q1:
+
+Q2:
+
+Q3:
+
+Q4:
+
+Q5:
+
+Q6:
+
+Q7:
+
+Q8:
+
+Q9:
