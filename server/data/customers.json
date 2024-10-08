@@ -1,0 +1,44 @@
+[
+  {
+    "email": "",
+    "password": "password123"
+  },
+  {
+    "email": "test1@email.com",
+    "password": "Password123",
+    "messages": [
+      null,
+      null
+    ]
+  },
+  {
+    "email": "test2@email.com",
+    "password": "bljdakoedoiajdoiae",
+    "messages": [
+      null
+    ]
+  },
+  {
+    "email": "teste23r3@email.com",
+    "password": "diojdoajdijwad",
+    "messages": [
+      null
+    ]
+  },
+  {
+    "email": "newUser@email.com",
+    "password": "djjwoowd",
+    "messages": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "email": "andrei@email.com",
+    "password": "eosfjsepof",
+    "messages": [
+      null
+    ]
+  }
+]
