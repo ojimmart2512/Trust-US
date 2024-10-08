@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Info</title>
-    <link rel="stylesheet" href="home.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-</head>
-<body>
-      <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                  <a href="">
-                    <!-- <span class="icon">
+    <link rel="stylesheet" href="home.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="">
+              <!-- <span class="icon">
                         <i class='bx bxs-home-smile'></i>
                     </span> -->
                     <span class="title">
@@ -32,14 +34,14 @@
                     </a>  
                   </li>
 
-                  <li>
-                    <a href="">
-                      <span class="icon">
-                        <i class='bx bx-credit-card' ></i>
-                      </span>
-                      <span class="title">My Banks</span>
-                    </a>  
-                  </li>
+          <li>
+            <a href="">
+              <span class="icon">
+                <i class="bx bx-credit-card"></i>
+              </span>
+              <span class="title">My Banks</span>
+            </a>
+          </li>
 
                   <li>
                     <a href="./deposit.html">
@@ -50,14 +52,14 @@
                     </a>  
                   </li>
 
-                  <li>
-                    <a href="">
-                      <span class="icon">
-                        <i class='bx bx-history'></i>
-                      </span>
-                      <span class="title">Transaction History</span>
-                    </a>  
-                  </li>
+          <li>
+            <a href="">
+              <span class="icon">
+                <i class="bx bx-history"></i>
+              </span>
+              <span class="title">Transaction History</span>
+            </a>
+          </li>
 
                   <li>
                     <a href="./action.html">
@@ -77,36 +79,58 @@
                     </a>  
                   </li>
 
-                  
-                  <a href="">
-                    <span class="icon profile">
-                        <i class='bx bxs-user-circle'></i>
-                    </span>
-                  </a>  
+          <a href="">
+            <span class="icon profile">
+              <i class="bx bxs-user-circle"></i>
+            </span>
+          </a>
 
-                  <!-- <a href="">
+          <!-- <a href="">
                     <span class="icon menu">
                         <i class='bx bx-menu' ></i>
                     </span>
                   </a>  -->
-            
-                 
-            </ul>
+        </ul>
+      </div>
+
+      <div class="main">
+        <div class="topbar">
+          <div class="toggle">
+            <i class="bx bx-menu"></i>
+          </div>
         </div>
 
-        <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                <i class='bx bx-menu' ></i>
-            </div>
-            </div>
-  
-            <div class="welcome">
-                   <h1>Welcome <strong>User</strong> </h1>
-                      <p>Access and manage your account and transactions efficently.</p>
-                      <img src="./img/computer-img.PNG" alt="">
+        <div class="welcome">
+          <h1>Welcome <strong>User</strong></h1>
+          <p>Access and manage your account and transactions efficently.</p>
+          <img
+            src="img/94DE6027-9166-48B2-AF1B-B1A6257FBD88_4_5005_c.jpeg"
+            alt=""
+          />
+        </div>
+
+        <div class="balance">
+          <div class="recentBalance">
+            <div class="balanceHeader">
+              <h2>Your Balance</h2>
             </div>
 
+            <div class="cardBalance">
+              <span class="name">Bank Account : Checkings</span>
+              <div class="secPart">
+                <img src="" alt="" />
+                <span class="currentBalance"> Total Current Balance:</span>
+                <span class="total">$11,000</span>
+              </div>
+              <div class="thirdPart">
+                <button type="button">Withdraw</button>
+                <button type="button">
+                  <a href="./deposit.html">Desposit</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
             <div class="balance">
                 <div class="recentBalance">
@@ -145,82 +169,68 @@
                 </div>
             </div>
 
-            <div class="details">
-                <div class="recentTransactions">
-                    <div class="cardHeader">
-                        <h2>Recent Transactions</h2>
-                        <a href="" class="btn"> View All</a>
-                    </div>
+            <table>
+              <thead>
+                <tr>
+                  <td>Transaction</td>
+                  <td>Amount</td>
+                  <td>Status</td>
+                  <td>Date</td>
+                </tr>
+              </thead>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Transaction</td>
-                                <td>Amount</td>
-                                <td>Status</td>
-                                <td>Date</td>
-                            </tr>
-                        </thead>
+              <tbody>
+                <tr>
+                  <td>Chick-fil-A</td>
+                  <td>$40.00</td>
+                  <td><span class="status pending">Pending</span></td>
+                  <td>October 6th, 2024</td>
+                </tr>
 
-                        <tbody>
-                            <tr>
-                                <td>Chick-fil-A</td>
-                                <td>$40.00</td>
-                                <td><span class="status pending">Pending</span></td>
-                                <td>October 6th, 2024</td>
-                            </tr>
+                <tr>
+                  <td>Apple Watch</td>
+                  <td>$399.00</td>
+                  <td><span class="status done">Done</span></td>
+                  <td>October 4th, 2024</td>
+                </tr>
 
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$399.00</td>
-                                <td><span class="status done">Done</span></td>
-                                <td>October 4th, 2024</td>
-                            </tr>
+                <tr>
+                  <td>In-N-Out Burger</td>
+                  <td>$35.00</td>
+                  <td><span class="status done">Done</span></td>
+                  <td>October 4th, 2024</td>
+                </tr>
 
-                            <tr>
-                                <td>In-N-Out Burger</td>
-                                <td>$35.00</td>
-                                <td><span class="status done">Done</span></td>
-                                <td>October 4th, 2024</td>
-                            </tr>
-
-                            <tr>
-                                <td>Samsung Galaxty S24</td>
-                                <td>$900.35</td>
-                                <td><span class="status pending">Pending</span></td>
-                                <td>October 1th, 2024</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
+                <tr>
+                  <td>Samsung Galaxty S24</td>
+                  <td>$900.35</td>
+                  <td><span class="status pending">Pending</span></td>
+                  <td>October 1th, 2024</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-          
-          
-          
-          
-          
+    </div>
 
-    
     <script>
-          // add hovered class to selected list item
-        let list = document.querySelectorAll(".navigation li");
+      // add hovered class to selected list item
+      let list = document.querySelectorAll(".navigation li");
 
-        function activeLink() {
-            list.forEach((item) => {
-            item.classList.remove("hovered");
-            });
-            this.classList.add("hovered");
-        }
+      function activeLink() {
+        list.forEach((item) => {
+          item.classList.remove("hovered");
+        });
+        this.classList.add("hovered");
+      }
 
-        list.forEach((item) => item.addEventListener("mouseover", activeLink));
+      list.forEach((item) => item.addEventListener("mouseover", activeLink));
 
-        // Menu Toggle
-        let toggle = document.querySelector(".toggle");
-        let navigation = document.querySelector(".navigation");
-        let main = document.querySelector(".main");
+      // Menu Toggle
+      let toggle = document.querySelector(".toggle");
+      let navigation = document.querySelector(".navigation");
+      let main = document.querySelector(".main");
 
         toggle.onclick = function () {
             navigation.classList.toggle("active");
@@ -229,5 +239,5 @@
             
         };
     </script>
-</body>
+  </body>
 </html>

@@ -20,7 +20,9 @@ app.use(express.json()); // Parse JSON bodies
 
 // Home route
 app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: serverPages });
+    res.sendFile('pages/index.html', { root: serverPublic });
+
+    res.sendFile('index.html', { root: serverPages })
 });
 
 app.get('/users', async (req, res) => {
@@ -39,13 +41,13 @@ app.get('/users', async (req, res) => {
 });
 
 // About route
-app.get('/about', (req, res) => {
+app.get('/about.html', (req, res) => {
     res.sendFile('pages/about.html', { root: serverPublic });
 });
-app.get('/sign-in', (req, res) => {
+app.get('/sign-in.html', (req, res) => {
     res.sendFile('pages/sign-in.html', { root: serverPublic });
 });
-app.get('/home', (req, res) => {
+app.get('/home.html', (req, res) => {
     res.sendFile('pages/home.html', { root: serverPublic });
 });
 app.get('/deposit.html', (req, res) => {
@@ -65,7 +67,7 @@ app.get('/'), (req, res) => {
 
 
 // Form route
-app.get('/form', (req, res) => {
+app.get('/form.html', (req, res) => {
     res.sendFile('pages/form.html', { root: serverPublic });
 });
 // Form Submission Route
@@ -139,7 +141,11 @@ app.delete('/user/:name/:password/:PIN', async (req, res) => {
             return res.status(404).send('Customers data not found')
         }
         // cache the userIndex based on a matching name and email
-        const userIndex = customers.findIndex(user => user.name === name && user.password === password && user.PIN === PIN); 
+        const userIndex = customers.findIndex(user => user.name === name && user.password === password && user.PIN === PIN);
+
+
+        // ended off here 10/2/2024
+
         console.log(userIndex);
         if (userIndex === -1) {
             return res.status(404).send('User not found');
@@ -163,5 +169,74 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-        // ended off here 10/2/2024
+// ended off here 10/2/2024
 
+// let value = 0;
+// const valueElement = document.getElementById("value");
+// const deposit = document.getElementById("deposit");
+// const withdraw = document.getElementById("withdraw");
+// const fiveButton = document.getElementById("five");
+// const tenButton = document.getElementById("ten");
+// const twentyButton = document.getElementById("twenty");
+// const fiftyButton = document.getElementById("fifty");
+// const oneHundredButton = document.getElementById("one-hundred");
+
+// function popupFn() {
+//     document.getElementById("overlay").style.display = "block";
+//     document.getElementById("popupDialog").style.display = "block";
+// }
+
+// function closeFn() {
+//     document.getElementById("overlay").style.display = "none";
+//     document.getElementById("popupDialog").style.display = "none";
+// }
+
+// deposit.addEventListener("click", () => {
+//     if (deposit) {
+//         fiveButton.addEventListener("click", () => {
+//             value += 5;
+//             valueElement.textContent = value;
+//         });
+//         tenButton.addEventListener("click", () => {
+//             value += 10;
+//             valueElement.textContent = value;
+//         });
+//         twentyButton.addEventListener("click", () => {
+//             value += 20;
+//             valueElement.textContent = value;
+//         });
+//         fiftyButton.addEventListener("click", () => {
+//             value += 50;
+//             valueElement.textContent = value;
+//         });
+//         oneHundredButton.addEventListener("click", () => {
+//             value += 100;
+//             valueElement.textContent = value;
+//         });
+//     }
+// });
+
+// withdraw.addEventListener("click", () => {
+//     if (withdraw) {
+//         fiveButton.addEventListener("click", () => {
+//             value -= 5;
+//             valueElement.textContent = value;
+//         });
+//         tenButton.addEventListener("click", () => {
+//             value -= 10;
+//             valueElement.textContent = value;
+//         });
+//         twentyButton.addEventListener("click", () => {
+//             value -= 20;
+//             valueElement.textContent = value;
+//         });
+//         fiftyButton.addEventListener("click", () => {
+//             value -= 50;
+//             valueElement.textContent = value;
+//         });
+//         oneHundredButton.addEventListener("click", () => {
+//             value -= 100;
+//             valueElement.textContent = value;
+//         });
+//     }
+// });
