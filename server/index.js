@@ -10,6 +10,7 @@ const app = express();
 const clientPath = path.join(__dirname, '..', 'client/src');
 const dataPath = path.join(__dirname, 'data', 'users.json');
 const serverPublic = path.join(__dirname, 'public');
+const serverPages = path.join(__dirname, 'public/pages');
 // Middleware setup
 app.use(express.static(clientPath)); // Serve static files from client directory
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
@@ -19,7 +20,11 @@ app.use(express.json()); // Parse JSON bodies
 
 // Home route
 app.get('/', (req, res) => {
+<<<<<<< HEAD
     res.sendFile('pages/index.html', { root: serverPublic });
+=======
+    res.sendFile('index.html', { root: serverPages });
+>>>>>>> 147b49c7632f26c7b07c8c8ce7e99bea25152c93
 });
 
 app.get('/users', async (req, res) => {
@@ -41,9 +46,12 @@ app.get('/users', async (req, res) => {
 app.get('/about', (req, res) => {
     res.sendFile('pages/about.html', { root: serverPublic });
 });
-app.get('/sign-in'), (req, res) => {
-    res.sendFile('/client/src/sign-in.html', { root: serverPublic });
-}
+app.get('/sign-in', (req, res) => {
+    res.sendFile('pages/sign-in.html', { root: serverPublic });
+});
+app.get('/home', (req, res) => {
+    res.sendFile('pages/home.html', { root: serverPublic });
+});
 app.get('/'), (req, res) => {
     res.sendFile('/client/src/img', { root: serverPublic });
 }
