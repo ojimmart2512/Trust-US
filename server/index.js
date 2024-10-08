@@ -20,11 +20,9 @@ app.use(express.json()); // Parse JSON bodies
 
 // Home route
 app.get('/', (req, res) => {
-<<<<<<< HEAD
     res.sendFile('pages/index.html', { root: serverPublic });
-=======
-    res.sendFile('index.html', { root: serverPages });
->>>>>>> 147b49c7632f26c7b07c8c8ce7e99bea25152c93
+
+    res.sendFile('index.html', { root: serverPages })
 });
 
 app.get('/users', async (req, res) => {
@@ -43,13 +41,13 @@ app.get('/users', async (req, res) => {
 });
 
 // About route
-app.get('/about', (req, res) => {
+app.get('/about.html', (req, res) => {
     res.sendFile('pages/about.html', { root: serverPublic });
 });
-app.get('/sign-in', (req, res) => {
+app.get('/sign-in.html', (req, res) => {
     res.sendFile('pages/sign-in.html', { root: serverPublic });
 });
-app.get('/home', (req, res) => {
+app.get('/home.html', (req, res) => {
     res.sendFile('pages/home.html', { root: serverPublic });
 });
 app.get('/'), (req, res) => {
@@ -63,7 +61,7 @@ app.get('/'), (req, res) => {
 
 
 // Form route
-app.get('/form', (req, res) => {
+app.get('/form.html', (req, res) => {
     res.sendFile('pages/form.html', { root: serverPublic });
 });
 // Form Submission Route
