@@ -19,7 +19,7 @@ app.use(express.json()); // Parse JSON bodies
 
 // Home route
 app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: clientPath });
+    res.sendFile('pages/index.html', { root: serverPublic });
 });
 
 app.get('/users', async (req, res) => {
