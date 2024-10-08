@@ -48,6 +48,12 @@ app.get('/sign-in', (req, res) => {
 app.get('/home', (req, res) => {
     res.sendFile('pages/home.html', { root: serverPublic });
 });
+app.get('/deposit.html', (req, res) => {
+    res.sendFile('pages/deposit.html', { root: serverPublic });
+});
+app.get('/action.html', (req, res) => {
+    res.sendFile('pages/action.html', { root: serverPublic });
+});
 app.get('/'), (req, res) => {
     res.sendFile('/client/src/img', { root: serverPublic });
 }
