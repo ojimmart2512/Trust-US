@@ -103,9 +103,11 @@ button {
     border-radius: 15px;
     cursor: pointer;
 }
-
-/* button:hover {
-    background-color: #0056b3;
+/* @media (max-width: 40px) {
+    .logo img{
+        position: absolute;
+        height: 80px;
+    }
 } */
 
     </style>
@@ -119,7 +121,7 @@ button {
         <div class="logo">
             <img src="./img/trust-us-white-logo.png" alt="">
         </div>
-        <form class="form" id="form">
+        <form class="form" action="">
             <p>Please Enter Your Details</p>
             <h1>Welcome Back</h1>
             <!-- <label for="email">Email:</label> -->
@@ -134,10 +136,58 @@ button {
 
             <div class="links">
                 <a href="" id="signUp">Sign Up</a>
-                <a href="" id="forgot">Forgot Password</a>
+                <a href="action.html" id="forgot">Forgot Password</a>
             </div>
         </form>
+
+<!-- 
+        <table id="usersTable">
+            <thead>
+              <tr>
+                <th>SuperName</th>
+                <th>SuperPowers</th>
+              </tr>
+            </thead> -->
+            <tbody id="userTableBody">
+              <!-- data of users will be rendered here -->
+            </tbody>
+          </table>
     </div>
+
+
+    <script>
+    //     async function fetchUsers() {
+    //     try {
+    //       const response = await fetch("/users");
+    //       if (!response.ok) {
+    //         throw new Error("Error fetching users. Response not ok");
+    //       }
+    //       // there could be an error getting response/fetching the endpoint
+    //       console.log(response);
+    //       const users = await response.json();
+    //       // there could be an error parsing the response
+    //       // console.log(users);
+    //       return users;
+    //     } catch (error) {
+    //       console.error("There was a problem");
+    //       console.error(error);
+    //     }
+    //   }
+
+    //   async function renderUsers() {
+    //     const tableBody = document.getElementById("userTableBody");
+    //     tableBody.innerHTML = "";
+    //     try {
+    //       const users = await fetchUsers();
+    //       if (Array.isArray(users) && users.length > 0) {
+    //         users.forEach((user) => {
+    //           const row = `<tr><td>${user.name}</td><td>${user.messages}</td></tr>`;
+    //           tableBody.innerHTML += row;
+    //         });
+    //       }
+    //     } catch (error) {}
+    //   }
+    //   document.addEventListener("DOMContentLoaded", renderUsers);
+    </script>
 </body>
-<script src="./sign-in.js"></script>
 </html>
