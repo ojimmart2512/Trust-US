@@ -88,7 +88,7 @@ app.post('/submit-form', async (req, res) => {
         // Save updated users
         await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
         res.redirect('/sign-in');
-       
+
     } catch (error) {
         console.error('Error processing form:', error);
         res.status(500).send('An error occurred while processing your submission.');
@@ -119,25 +119,25 @@ app.post('/sign-in', async (req, res) => {
     }
 });
 // Update user route (currently just logs and sends a response)
-app.put('/update-user/:currentName/:currentEmail', async (req, res) => {
+app.put('/update-user/:currentEmail/:currentPassword', async (req, res) => {
     try {
-        const { currentName, currentEmail } = req.params;
-        const { newName, newEmail } = req.body;
-        console.log('Current user:', { currentName, currentEmail });
-        console.log('New user data:', { newName, newEmail });
+        const { currentEmail, currentPassword } = req.params;
+        const { newEmail, newPassword } = req.body;
+        console.log('Current user:', { currentEmail, currentPassword });
+        console.log('New user data:', { newEmail, newPassword });
         const data = await fs.readFile(dataPath, 'utf8');
         if (data) {
             let users = JSON.parse(data);
-            const userIndex = users.findIndex(user => user.name === currentName && user.email === currentEmail);
+            const userIndex = users.findIndex(user => user.password === currentPassword && user.email === currentEmail);
             console.log(userIndex);
             if (userIndex === -1) {
                 return res.status(404).json({ message: "User not found" })
             }
-            users[userIndex] = { ...users[userIndex], name: newName, email: newEmail };
+            users[userIndex] = { ...users[userIndex], email: newEmail, password: newPassword };
             console.log(users);
             await fs.writeFile(dataPath, JSON.stringify(users, null, 2));
 
-            res.status(200).json({ message: `You sent ${newName} and ${newEmail}` });
+            res.status(200).json({ message: `You sent ${newEmail} and ${newPassword}` });
         }
     } catch (error) {
         console.error('Error updating user:', error);
@@ -147,9 +147,9 @@ app.put('/update-user/:currentName/:currentEmail', async (req, res) => {
 
 
 
-app.delete('/user/:name/:password', async (req, res) => {
+app.delete('/user/:email/:password', async (req, res) => {
     try {
-        const { name, password} = req.params
+        const { email, password } = req.params
         // initalize an empty array of 'users'
         let customers = [];
         // try to read the users.json file and cache as data
@@ -160,7 +160,7 @@ app.delete('/user/:name/:password', async (req, res) => {
             return res.status(404).send('Customers data not found')
         }
         // cache the userIndex based on a matching name and email
-        const userIndex = customers.findIndex(user => user.name === name && user.password === password ); 
+        const userIndex = customers.findIndex(user => user.email === email && user.password === password);
         console.log(userIndex);
         if (userIndex === -1) {
             return res.status(404).send('User not found');
@@ -184,5 +184,5 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-        // ended off here 10/2/2024
+// ended off here 10/2/2024
 
