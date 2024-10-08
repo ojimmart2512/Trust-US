@@ -39,6 +39,19 @@ During the first half of class, focus on researching important info that we may 
 10-4-24
 Changes I made for today: Made it so that we can go to the different pages through the index.html
 
+10-8-24
+Changes I made today: Fixed our page swaping again since we swapped all our files from the client folder to the server folder
+
+What is one idea/topic that you have had to revisit from last year while building your project?
+Q1: CSS
+
+What is one real world reference web site that you have used to inspire your work on this project? What is it about that site that appeals to you?
+Q2: Chase. The colors on the site and the way it is all arranged makes it easy to use and easy to see.
+
+Have you considered how users with sight disabilities might view your site? Have you taken into account color blindness or poor vision? Do you need to reexamine or recalibrate your sites font sizes or colors?
+Q3: We have not. We may need to recalibrate our sites font sizes and colors, however I am unsure as I am just QA.
+
+
 Q1:
 
 Q2:
