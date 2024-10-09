@@ -11,7 +11,8 @@ const clientPath = path.join(__dirname, '..', 'client/src');
 const dataPath = path.join(__dirname, 'data', 'users.json');
 const serverPublic = path.join(__dirname, 'public');
 // Middleware setup
-app.use(express.static(clientPath)); // Serve static files from client directory
+app.use(express.static(clientPath));// Serve static files from client directory
+// app.use(express.static(severPublic)); 
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(express.json()); // Parse JSON bodies
 
@@ -41,17 +42,28 @@ app.get('/users', async (req, res) => {
 app.get('/about', (req, res) => {
     res.sendFile('pages/about.html', { root: serverPublic });
 });
-app.get('/sign-in'), (req, res) => {
-    res.sendFile('/client/src/sign-in.html', { root: serverPublic });
-}
-app.get('/'), (req, res) => {
-    res.sendFile('/client/src/img', { root: serverPublic });
-}
+
+app.get('/sign-in', (req, res) => {
+    res.sendFile('/pages/sign-in.html', { root: serverPublic });
+});
+// app.get('/', (req, res) => {
+//     res.sendFile('/client/src/img', { root: serverPublic });
+// });
 
 //Home Route
-// app.get('/home', (req, res) => {
-//     res.sendFile('pages/home.html', { root: serverPublic });
-// });
+app.get('/home', (req, res) => {
+    res.sendFile('pages/home.html', { root: serverPublic });
+});
+
+//action route
+app.get('/update-user', (req, res) => {
+    res.sendFile('/pages/action.html', { root: serverPublic });
+});
+
+// deposit
+app.get('/transactions', (req, res) => {
+    res.sendFile('/pages/deposit.html', { root: serverPublic });
+});
 
 
 // Form route
@@ -77,7 +89,7 @@ app.post('/submit-form', async (req, res) => {
         if (user) {
             user.message.push(message);
         } else {
-            user = { name, superpower, universe };
+            user = { name, password, PIN };
             customers.push(user);
         }
 
@@ -87,6 +99,31 @@ app.post('/submit-form', async (req, res) => {
     } catch (error) {
         console.error('Error processing form:', error);
         res.status(500).send('An error occured while processing your submission.');
+    }
+});
+
+// sign in
+app.post('/sign-in', async (req, res) => {
+    try {
+        const { name, email } = req.body;
+
+        // Read users from the data file
+        const data = await fs.readFile(dataPath, 'utf8');
+        const users = JSON.parse(data);
+
+        // Find the user
+        const user = users.find(u => u.name === name && u.email === email);
+
+        if (user) {
+            // Return the user object
+            res.status(200).json(user);
+        } else {
+            // User not found
+            res.status(404).json({ error: 'User not found' });
+        }
+    } catch (error) {
+        console.error('Error during sign-in:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
 });
 
