@@ -4,23 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Info</title>
-    <link rel="stylesheet" href="home.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <div class="navigation">
-        <ul>
-          <li>
-            <a href="">
-              <!-- <span class="icon">
+    <link rel="stylesheet" href="home.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+      <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                  <a href="">
+                    <!-- <span class="icon">
                         <i class='bx bxs-home-smile'></i>
                     </span> -->
                     <span class="title">
-                        <img src="./img/trust-us-white-logo.png" alt="">
+                        <img src="/img/trust-us-white-logo.png" alt="">
                     </span>
                   </a>  
                 </li>
@@ -44,7 +42,7 @@
           </li>
 
                   <li>
-                    <a href="./deposit.html">
+                    <a href="/transactions">
                       <span class="icon">
                         <i class='bx bx-transfer'></i>
                       </span>
@@ -62,7 +60,7 @@
           </li>
 
                   <li>
-                    <a href="./action.html">
+                    <a href="/update-user">
                       <span class="icon">
                         <i class='bx bxs-cog'></i>
                       </span>
@@ -71,7 +69,7 @@
                   </li>
 
                   <li>
-                    <a href="">
+                    <a href="/sign-in">
                       <span class="icon">
                         <i class='bx bx-chevron-right logoutButton'></i>
                       </span>
@@ -93,26 +91,17 @@
         </ul>
       </div>
 
-      <div class="main">
-        <div class="topbar">
-          <div class="toggle">
-            <i class="bx bx-menu"></i>
-          </div>
-        </div>
-
-        <div class="welcome">
-          <h1>Welcome <strong>User</strong></h1>
-          <p>Access and manage your account and transactions efficently.</p>
-          <img
-            src="img/94DE6027-9166-48B2-AF1B-B1A6257FBD88_4_5005_c.jpeg"
-            alt=""
-          />
-        </div>
-
-        <div class="balance">
-          <div class="recentBalance">
-            <div class="balanceHeader">
-              <h2>Your Balance</h2>
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                <i class='bx bx-menu' ></i>
+            </div>
+            </div>
+  
+            <div class="welcome">
+                   <h1>Welcome <strong>User</strong> </h1>
+                      <p>Access and manage your account and transactions efficently.</p>
+                      <img src="./img/computer-img.PNG" alt="">
             </div>
 
             <div class="cardBalance">
@@ -156,7 +145,7 @@
                       
                         <div class="btnBal">
                         <div class="thirdPart">
-                          <a href="./deposit.html">
+                          <a href="/transactions">
                                 <button type="button"> Withdraw</button> 
                                 <button type="button"> Deposit</button> 
                           </a>
@@ -238,6 +227,12 @@
 
             
         };
+
+    
+      // Logout functionality
+        document.querySelector(".logoutButton").addEventListener("click", () => {
+        window.location.href = "/sign-in";
+      });
     </script>
 </body>
 </html>
