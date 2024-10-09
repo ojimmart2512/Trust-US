@@ -40,9 +40,9 @@ app.get('/customers', async (req, res) => {
 });
 
 // About route
-app.get('/about', (req, res) => {
-    res.sendFile('pages/about.html', { root: serverPublic });
-});
+// app.get('/about', (req, res) => {
+//     res.sendFile('pages/about.html', { root: serverPublic });
+// });
 
 // Sign-in route
 app.get('/sign-in', (req, res) => {
