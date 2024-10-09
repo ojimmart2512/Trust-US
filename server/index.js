@@ -46,7 +46,7 @@ app.get('/about', (req, res) => {
 
 // Sign-in route
 app.get('/sign-in', (req, res) => {
-    res.sendFile('sign-in.html', { root: clientPath });
+    res.sendFile('pages/sign-in.html', { root: serverPublic });
 });
 
 
