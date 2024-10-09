@@ -109,10 +109,10 @@ app.post('/login', async (req, res) => {
 
         // Read users from the data file
         const data = await fs.readFile(dataPath, 'utf8');
-        const users = JSON.parse(data);
+        const customers = JSON.parse(data);
 
         // Find the user
-        const user = users.find(u => u.email === email && u.password === password);
+        const user = customers.find(u => u.email === email && u.password === password);
 
         if (user) {
             // Return the user object
