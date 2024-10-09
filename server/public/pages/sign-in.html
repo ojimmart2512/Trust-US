@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <title>Sign In </title>
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+        }
+
+        .background {
+            background-image: url('/img/Image-transformed.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            top: 0;
+            left: 0;
+            position: absolute;
+            height: 130px
+                /* margin-top: 2%;
+    margin-left: 2%; */
+                /* width: 100%; */
+                /* border: 1px solid red; */
+        }
+
+        .form {
+            background: white;
+            margin-right: 3%;
+            margin-bottom: 3%;
+            padding: 20px;
+            /* height: 500px; */
+            width: 400px;
+        }
+
+        .form p {
+            color: #4a4545ca;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            margin-top: 17px;
+            margin-left: 5%;
+        }
+
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 72%;
+            margin-left: 15%;
+            margin-bottom: 7%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .links {
+            /* border: 1px solid red; */
+            width: 72%;
+            margin-left: 15%;
+            margin-bottom: 5%;
+        }
+
+        .links a {
+            color: #4a4545ca;
+        }
+
+        /* .links #signUp {
+    margin-right: 90%;
+} */
+
+.links #forgot {
+    margin-left: 89px;
+}
+button {
+    padding: 10px;
+    width: 72%;
+    margin-left: 15%;
+    margin-bottom: 3%;
+    background-color: #7AA0C1;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* button:hover {
+    background-color: #0056b3;
+} */
+    </style>
+
+
+</head>
+
+<body>
+
+    <body>
+        <div class="background">
+            <div class="logo">
+                <img src="/img/trust-us-white-logo.png" alt="">
+            </div>
+            <form class="form" id="signInForm" method="POST">
+                <p>Please Enter Your Details</p>
+                <h1>Welcome Back</h1>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+
+            <div class="links">
+                <a href="/sign-up" id="signUp">Sign Up</a>
+                <a href="/forgot-password" id="forgot">Forgot Password</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signInForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                try {
+                    const response = await fetch('/sign-in', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, password })
+                    });
+
+                    if (response.ok) {
+                        window.location.href = "/home";
+                    } else {
+                        alert('Login failed. Please check your credentials.');
+                    }
+                } catch (error) {
+                    console.error('Error during sign-in:', error);
+                }
+            });
+        </script>
+    </body>
+
+</html>

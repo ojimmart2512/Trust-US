@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>index</title>
+        <style>
+          *{
+              margin: 0;
+              top:0;
+              text-decoration: none;
+          }
+
+           .header {
+              background-color: #003366;
+              color: white;
+              padding: 15px 0;
+              text-align: center;
+          }
+
+          .headerContainer {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 20px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+          }
+
+          .logo h1 {
+              margin: 0;
+              font-size: 24px;
+          }
+
+          .nav ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              display: flex;
+          }
+
+          .nav li {
+              margin: 0 15px;
+          }
+
+          .nav a {
+              color: white;
+              text-decoration: none;
+              font-weight: bold;
+          }
+
+          .nav a:hover {
+              text-decoration: underline;
+          }
+
+          /* main */
+          .background{
+              margin-top: 50px;
+              background-image: url(./img/building.png);
+              background-size: cover;
+              background-position: center;
+          }
+          .main{
+              margin-bottom: 40px;
+          }
+          .about-us {
+              max-width: 800px;
+              margin: 0 auto;
+              padding: 20px;
+              margin-top: 20px;
+              margin-bottom: 40px;
+              font-size: 1.2rem;
+          }
+
+          .about-us h1 {
+              text-align: center;
+          }
+
+          .about-us h2 {
+              margin-top: 20px;
+              margin-bottom: 10px;
+          }
+
+          .about-us p {
+              text-align: left;
+          }
+
+
+          .divs {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 20px;
+          }
+
+          .side-by-side {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 20px;
+          }
+
+          .left-div, .right-div {
+              flex: 1;
+              margin: 0 10px;
+              padding: 20px;
+              background-color: #f2f2f2;
+              border-radius: 5px;
+          }
+
+          .about-us {
+              max-width: 800px;
+              margin: 0 auto;
+              padding: 20px;
+          }
+
+          .about-us h1 {
+              text-align: center;
+          }
+
+          .about-us h2 {
+              margin-top: 20px;
+              margin-bottom: 10px;
+          }
+
+          .about-us p {
+              text-align: left;
+          }
+
+          .left-div  p{
+              margin-top: 10px;
+          }
+          .right-div p {
+              margin-top: 20px;
+              margin-bottom: 20px;
+          }
+          .right-div #right {
+              cursor: pointer;
+              /* margin-top: 20px; */
+              color: #003366;
+          }
+          .left-div button {
+              margin-top: 10px;
+              border: none;
+              color: white;
+              background-color: #7AA0C1;
+              height: 30px;
+              border-radius: 15px;
+              cursor: pointer;
+              font-size: 1rem;
+          }
+
+
+
+
+          /* footer */
+
+          .footer {
+              background-color: #003366;
+              color: white;
+              padding: 20px 0;
+              text-align: center;
+          }
+
+          .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 20px;
+          }
+
+          .footer-links {
+              margin-bottom: 10px;
+          }
+
+          .footer-links a {
+              color: white;
+              margin: 0 15px;
+              text-decoration: none; /
+          }
+
+          .footer-links a:hover {
+              text-decoration: underline;
+          }
+
+          .footer-info p {
+              margin: 5px 0;
+          }
+        </style>
+      </head>
+
+      <body>
+        <header class="header">
+          <div class="headerContainer">
+            <div class="logo">
+              <img src="./img/trust-us-white-logo.png" alt="" height="55px" />
+            </div>
+            <nav class="nav">
+              <ul>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="./sign-in.html">Login</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <div class="main">
+          <div class="background">
+            <img src="./img/building.png" alt="" />
+          </div>
+
+          <div class="divs">
+            <a href="/sign-in.html"><button>FORM BUTTON</button></a>
+            <a href="/about"><button>ABOUT BUTTON</button></a>
+            <a href="./home.html"><button>HOME BUTTON</button></a>
+            <div class="side-by-side">
+              <div class="left-div">
+                <h2>Unlock higher rates with <br />Trust-Us Savings.</h2>
+                <p>Get competitive rates that grow as your balances grow.</p>
+                <p>
+                  <a href="./sign-in.html">
+                    <button>Sign Up</button>
+                  </a>
+                </p>
+              </div>
+
+              <div class="right-div">
+                <h2>Automated Savings Tools</h2>
+                <p>
+                  Set savings goals, track your progress and grow your money
+                  <br />
+                  faster with automated tools in our mobile app.
+                </p>
+                <a href="" id="right">Download The App > </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-us">
+            <h1>About US</h1>
+            <p>
+              At Trust-Us we offer a wide range of services, including personal
+              banking, business banking, investment services, and wealth
+              management. Our experienced team is here to help you navigate your
+              financial journey.
+            </p>
+            <h2>Our Mission</h2>
+            <p>
+              At Trust-Us, our mission is to empower our customers by providing
+              accessible financial services and expert guidance. We strive to
+              build lasting relationships based on trust, integrity, and
+              excellence.
+            </p>
+            <h2>Join Us</h2>
+            <p>
+              Whether you're looking to open a new account, apply for a loan, or
+              simply seek financial advice, Trust-Us is here for you. Visit any
+              of our branches or explore our website to learn more about how we
+              can assist you
+            </p>
+            <h2>Contact Us</h2>
+            <p>
+              Contact Us For more information or to speak with one of our
+              representatives, please reach out to us at trust-us@gmail.com.
+            </p>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="container">
+            <div class="footer-links">
+              <a href="#">About Us</a>
+              <a href="#">Services</a>
+              <a href="#">Contact</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Use</a>
+            </div>
+            <div class="footer-info">
+              <p>Contributer: Omar JuanCarlos Micah Dominique Mirella</p>
+              <p>&copy; 2024 Trust-US. All Rights Reserved.</p>
+              <p>1234 West-MEC, Glendale, AZ, 9378 | Phone: (123) 456-7890</p>
+            </div>
+          </div>
+        </footer>
+      </body>
+    </html>
+  </body>
+</html>

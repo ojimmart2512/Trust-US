@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+        }
+
+        .background {
+            background-image: url(/img/Capture.PNG);
+            background-size: cover;
+            background-position: top;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrapper {
+            display: flex;
+            gap: 30px;
+        }
+
+        .logo img {
+            /* border: 1px solid red; */
+            height: 180px;
+            top: 1%;
+            left: 38%;
+            position: absolute;
+        }
+
+        .form {
+            background-color: #fff;
+            /* margin-right: 3%;
+        margin-bottom: 3%; */
+            /* height: 500px; */
+            padding: 20px;
+            width: 400px;
+        }
+
+        /* .firstForm{
+        border: 1px solid red;
+       }
+       .secondForm{
+        border: 1px solid blue;
+       } */
+        #secForm {
+            height: 387px;
+        }
+
+        #secForm p {
+            margin-bottom: 9%;
+        }
+
+        .form p {
+            color: #4a4545ca;
+            margin-left: 35px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        /* label {
+       display: block;
+       margin-bottom: 5px;
+       }    */
+        input,
+        textarea {
+            width: 72%;
+            margin-left: 15%;
+            margin-bottom: 3%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            width: 72%;
+            margin-left: 15%;
+            margin-bottom: 3%;
+            background-color: #7AA0C1;
+            font-size: 15px;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="background">
+        <div class="logo">
+            <img src="/img/trustUs-logo-2.png" alt="">
+        </div>
+        <div class="wrapper">
+            <div class="firstForm">
+                <form action="" class="form" id="first">
+                    <h1>Update User</h1>
+                    <p>Please Enter Your Details To <strong>Update User</strong></p>
+                    <!-- <label for="email">Email:</label> -->
+                    <input type="email" id="currentEmail" name="currentEmail" placeholder="Current Email" required>
+                    <input type="email" id="newEmail" name="newEmail" placeholder="New Email" required>
+
+                    <!-- <label for="name">Password</label> -->
+                    <input type="text" id="currentPassword" name="currentPassword" placeholder="Current Password"
+                        required>
+                    <input type="text" id="newPassword" name="newPassword" placeholder="New Password" required>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+
+            <div class="secondForm">
+            <form action="" class="form" id="secForm">
+                <h1>Delete User</h1>
+                  <p>Please Enter Details To <strong>Delete User</strong></p>
+            <!-- <label for="email">Email:</label> -->
+            <input type="email" id="email" name="email"  placeholder="Email" required>
+
+            <!-- <label for="name">Password</label> -->
+            <input type="text" id="password" name="password" placeholder="Password" required>
+            
+            <button type="submit">Submit</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("first")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const currentPassword = document.getElementById("currentPassword").value;
+          const currentEmail = document.getElementById("currentEmail").value;
+          const newPassword = document.getElementById("newPassword").value;
+          const newEmail = document.getElementById("newEmail").value;
+          try {
+            const response = await fetch(
+              `/update-user/${currentPassword}/${currentEmail}`,
+              {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ newPassword, newEmail }),
+              }
+            );
+            const data = await response.json();
+            console.log(data);
+            renderUsers();
+            // alert("Message is: " + data.message);
+          } catch (error) {
+            alert("Error updating user: " + error.message);
+          }
+        });
+
+      document.getElementById("secForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const password = document.getElementById("delete-password").value;
+          const email = document.getElementById("delete-email").value;
+          try {
+            const response = await fetch(`/user/${password}/${email}`, {
+              method: "DELETE",
+            });
+            if (!response.ok) {
+              throw new Error("Problem fetching delete endpoint");
+            }
+            const data = await response.text();
+            // console.log(data);
+            renderUsers();
+          } catch (error) {
+            console.error(
+              "there was a problem " +
+                error.message +
+                "retry"
+            );
+          }
+        });
+    </script>
+</body>
+<script>
+    document
+        .getElementById("first")
+        .addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const currentPassword = document.getElementById("currentPassword").value;
+            const currentEmail = document.getElementById("currentEmail").value;
+            const newPassword = document.getElementById("newPassword").value;
+            const newEmail = document.getElementById("newEmail").value;
+            try {
+                const response = await fetch(
+                    `/update-user/${currentEmail}/${currentPassword}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ newEmail, newPassword }),
+                    }
+                );
+                const data = await response.json();
+                console.log(data);
+                // renderUsers();
+                // alert("Message is: " + data.message);
+            } catch (error) {
+                alert("Error updating user: " + error.message);
+            }
+        });
+
+
+
+
+    document.getElementById("secForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("delete-email").value;
+        const password = document.getElementById("delete-password").value;  // Fetch password
+
+        try {
+            const response = await fetch(`/user/${email}/${password}`, {  // Include password in the URL
+                method: "DELETE",
+            });
+
+            if (!response.ok) {
+                throw new Error("Problem fetching delete endpoint");
+            }
+
+            const data = await response.text();
+            // renderUsers();  // Assuming this function updates the frontend with user list
+        } catch (error) {
+            console.error(
+                "There was a problem: " + error.message
+            );
+        }
+    });
+
+</script>
+
+</html>

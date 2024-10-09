@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction</title>
+    <link rel="stylesheet" href="dep.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="">
+              <!-- <span class="icon">
+                        <i class='bx bxs-home-smile'></i>
+                    </span> -->
+              <span class="title">
+                <img src="./img/trust-us-white-logo.png" alt="" />
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="./home.html">
+              <span class="icon">
+                <i class="bx bxs-home-smile"></i>
+              </span>
+              <span class="title">Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <span class="icon">
+                <i class="bx bx-credit-card"></i>
+              </span>
+              <span class="title">My Banks</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/deposit.html">
+              <span class="icon">
+                <i class="bx bx-transfer"></i>
+              </span>
+              <span class="title">Transfer Funds</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <span class="icon">
+                <i class="bx bx-history"></i>
+              </span>
+              <span class="title">Transaction History</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="./action.html">
+              <span class="icon">
+                <i class="bx bxs-cog"></i>
+              </span>
+              <span class="title">Settings</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <span class="icon">
+                <i class="bx bx-chevron-right logoutButton"></i>
+              </span>
+              <span class="title">Logout</span>
+            </a>
+          </li>
+
+          <a href="">
+            <span class="icon profile">
+              <i class="bx bxs-user-circle"></i>
+            </span>
+          </a>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </div>
+
+      <div class="welcome">
+        <h1>Transfering Funds</h1>
+        <p>Deposit and Withdraw made easier than ever!</p>
+        <img src="./img/debitCard-Img.png" alt="" />
+      </div>
+
+      <div class="depositBalance">
+        <div class="recentBalance">
+          <div class="balanceHeader">
+            <h2>Deposit & Withdraw</h2>
+          </div>
+
+          <div class="cardContainer">
+            <!-- Parent container for Flexbox -->
+            <div class="cardBalance">
+              <div class="currentInfo">
+                <form action="">
+                  <h2 class="name">Deposit</h2>
+                  <div class="depo">
+                    <input
+                      type="text"
+                      id="moneyAmount"
+                      placeholder="$0.00"
+                      required
+                    /><br />
+                    <p>To</p>
+                    <br />
+                    <input
+                      type="text"
+                      id="accountTo"
+                      placeholder="Checkings Account"
+                      required
+                    /><br />
+                    <p>From</p>
+                    <br />
+                    <input
+                      type="text"
+                      id="accountFrom"
+                      placeholder="Savings Account"
+                      required
+                    /><br />
+                    <button type="submit">Deposit</button
+                    ><br />
+                </form>
+              </div>
+            </div>
+
+            <div class="cardBalance">
+              <div class="currentInfo">
+                <form action="">
+                  <h2 class="name">Withdraw</h2>
+                  <div class="depo">
+                    <input
+                      type="text"
+                      id="withdrawAmount"
+                      placeholder="$0.00"
+                      required
+                    /><br />
+                    <p>From</p>
+                    <br />
+                    <input
+                      type="text"
+                      id="withdrawAccount"
+                      placeholder="Checkings Account"
+                      required
+                    /><br />
+                    <button type="submit">Withdraw</button><br />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="withdrawBalance">
+                <div class="recentWithdraw">
+                    <div class="withdrawHeader">
+                        <h2>Make A Withdraw</h2>
+                    </div>
+        
+                    <div class="cardWithdraw">
+        
+                        <div class="currentInfo"></div>
+
+                    </div>
+                         
+                </div>
+            </div> -->
+    </div>
+
+    <script>
+      // add hovered class to selected list item
+      let list = document.querySelectorAll(".navigation li");
+
+      function activeLink() {
+        list.forEach((item) => {
+          item.classList.remove("hovered");
+        });
+        this.classList.add("hovered");
+      }
+
+      list.forEach((item) => item.addEventListener("mouseover", activeLink));
+
+      // Menu Toggle
+      let toggle = document.querySelector(".toggle");
+      let navigation = document.querySelector(".navigation");
+      let main = document.querySelector(".main");
+
+      toggle.onclick = function () {
+        navigation.classList.toggle("active");
+        main.classList.toggle("active");
+      };
+    </script>
+  </body>
+</html>
