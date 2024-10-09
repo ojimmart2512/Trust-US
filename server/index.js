@@ -49,6 +49,9 @@ app.get('/sign-in', (req, res) => {
     res.sendFile('pages/sign-in.html', { root: serverPublic });
 });
 
+app.get('/action', (req, res) => {
+    res.sendFile('pages/action.html', { root: serverPublic });
+});
 
 //Home Route
 app.get('/home', (req, res) => {
