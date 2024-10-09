@@ -11,3 +11,12 @@ The challenges I faced were just realizing how much work may go into actually be
 being able to display it. That's a work in progress though. I'm using w3 schools to help me refresh on some skills. I don't really
 have a resrouce to be able to collaborate with my teammates, we are currently just checking up on one another and we also have the standups 
 to help everyone know what everyone else is doing.
+
+10/03
+1. I am trying to give my best effort. 
+
+2. I want to be finished with the withdrawing and depositing logic by the end of the week.
+
+3. The withdrawing and depositing logic.
+
+4. What I'm currently working on will help and I make sure to ask every now and then if anyone needs help.

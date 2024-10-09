@@ -21,7 +21,7 @@ body, html {
 }
 
 .background {
-    background-image: url('/img/Image-transformed.jpeg'); 
+    background-image: url('./img/Image-transformed.jpeg'); 
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -103,9 +103,11 @@ button {
     border-radius: 15px;
     cursor: pointer;
 }
-
-/* button:hover {
-    background-color: #0056b3;
+/* @media (max-width: 40px) {
+    .logo img{
+        position: absolute;
+        height: 80px;
+    }
 } */
 
     </style>
@@ -118,9 +120,13 @@ button {
 <body>
     <div class="background">
         <div class="logo">
-            <img src="/img/trust-us-white-logo.png" alt="">
+            <img src="./img/trust-us-white-logo.png" alt="">
         </div>
+<<<<<<< HEAD
         <form class="form" id="signInForm" method="POST">
+=======
+        <form class="form" action="">
+>>>>>>> 9e920eef40cd9a676f0bb2bde00a47ef85e8047e
             <p>Please Enter Your Details</p>
             <h1>Welcome Back</h1>
             <input type="email" id="email" name="email" placeholder="Email" required>
@@ -128,12 +134,31 @@ button {
             <button type="submit">Sign In</button>
 
             <div class="links">
+<<<<<<< HEAD
                 <a href="/sign-up" id="signUp">Sign Up</a>
                 <a href="/forgot-password" id="forgot">Forgot Password</a>
+=======
+                <a href="" id="signUp">Sign Up</a>
+                <a href="action.html" id="forgot">Forgot Password</a>
+>>>>>>> 9e920eef40cd9a676f0bb2bde00a47ef85e8047e
             </div>
         </form>
+
+<!-- 
+        <table id="usersTable">
+            <thead>
+              <tr>
+                <th>SuperName</th>
+                <th>SuperPowers</th>
+              </tr>
+            </thead> -->
+            <tbody id="userTableBody">
+              <!-- data of users will be rendered here -->
+            </tbody>
+          </table>
     </div>
 
+<<<<<<< HEAD
     <script>
         document.getElementById('signInForm').addEventListener('submit', async (event) => {
             event.preventDefault();
@@ -157,6 +182,42 @@ button {
                 console.error('Error during sign-in:', error);
             }
         });
+=======
+
+    <script>
+    //     async function fetchUsers() {
+    //     try {
+    //       const response = await fetch("/users");
+    //       if (!response.ok) {
+    //         throw new Error("Error fetching users. Response not ok");
+    //       }
+    //       // there could be an error getting response/fetching the endpoint
+    //       console.log(response);
+    //       const users = await response.json();
+    //       // there could be an error parsing the response
+    //       // console.log(users);
+    //       return users;
+    //     } catch (error) {
+    //       console.error("There was a problem");
+    //       console.error(error);
+    //     }
+    //   }
+
+    //   async function renderUsers() {
+    //     const tableBody = document.getElementById("userTableBody");
+    //     tableBody.innerHTML = "";
+    //     try {
+    //       const users = await fetchUsers();
+    //       if (Array.isArray(users) && users.length > 0) {
+    //         users.forEach((user) => {
+    //           const row = `<tr><td>${user.name}</td><td>${user.messages}</td></tr>`;
+    //           tableBody.innerHTML += row;
+    //         });
+    //       }
+    //     } catch (error) {}
+    //   }
+    //   document.addEventListener("DOMContentLoaded", renderUsers);
+>>>>>>> 9e920eef40cd9a676f0bb2bde00a47ef85e8047e
     </script>
 </body>
 </html>
