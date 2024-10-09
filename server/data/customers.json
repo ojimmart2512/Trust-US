@@ -1,0 +1,27 @@
+[
+  {
+    "email": "",
+    "password": "password123"
+  },
+  {
+    "email": "teste23r3@email.com",
+    "password": "diojdoajdijwad",
+    "messages": [
+      null
+    ]
+  },
+  {
+    "email": "updatedUser@email.com",
+    "password": "updated",
+    "messages": [
+      null
+    ]
+  },
+  {
+    "email": "andrei@email.com",
+    "password": "eosfjsepof",
+    "messages": [
+      null
+    ]
+  }
+]
