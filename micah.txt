@@ -51,21 +51,21 @@ Q2: Chase. The colors on the site and the way it is all arranged makes it easy t
 Have you considered how users with sight disabilities might view your site? Have you taken into account color blindness or poor vision? Do you need to reexamine or recalibrate your sites font sizes or colors?
 Q3: We have not. We may need to recalibrate our sites font sizes and colors, however I am unsure as I am just QA.
 
+10-9-24
+I did not make any changes today, as I did not find any errors that needed to be fixed.
 
-Q1:
+Adaptability
+Q1: There were a few unexpected challenges where we had to fix our page swapping issues and some spelling issues, however we overall pushed through and got through it, becoming an even stronger team.
 
-Q2:
+Code Quality Reflection
+Q2: Overall, I believe that our code is pretty messy, but it is still functioning. If we had more time, I might have been able to re-organize our code so that it would be much easier to read, but we ran out of time.
 
-Q3:
+Role Responsibilities
+Q3: I interpreted my role, quality assurance, as the person who helps research data required whilst also fixing any and all bugs alongside making sure the site looks pleasing to the eyes. My main tasks were to help research things and to make sure the site was functional with little to no errors.
 
-Q4:
+Problem-Solving
+Q4: One technical problem we faced was being unable to swap between pages at times. The first step I took to solve this issue was to look through the index.js to see how we were switching between pages beforehand.
+Next, I copied the code and then changed the data I needed to change for it to work. Finally, I added in the new link for it, and double-checked via testing it in the live server.
 
-Q5:
-
-Q6:
-
-Q7:
-
-Q8:
-
-Q9:
+Advice for Peers
+Q5: I would recommend relying on your teammates, but remembering that they wont know the answer to everything. Make sure you all are happy with what you are working on alongside your role, and if someone needs help, offer to help them. If you are done with your portion of the project at that time, offer your assistance to others as you are a team, not a solo dev.
