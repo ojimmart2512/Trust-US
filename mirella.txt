@@ -17,4 +17,10 @@ Journal
    - I do believe I'm giving my best effort in the team
    - One way I can improve my site by the end of the week is finishing all of the websites 
    -One technical challenge that is currently keeping me from moving forward is how to position stuff
-   - One way I can supprot my team is finishing up my part so they can implement their code to the website as well as helping them when needed
+   - One way I can supprot my team is finishing up my part so they can implement their code to the website as well as helping
+    them when needed
+
+-8th October, 2024
+    -All the css
+    - Bank of America and Chase. this didn't really appeal to me it was just the first bank i remebered
+    - I havent really taken it into consideration to be honest
