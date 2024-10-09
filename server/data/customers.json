@@ -11,8 +11,8 @@
     ]
   },
   {
-    "email": "newUser@email.com",
-    "password": "djjwoowd",
+    "email": "updatedUser@email.com",
+    "password": "updated",
     "messages": [
       null
     ]

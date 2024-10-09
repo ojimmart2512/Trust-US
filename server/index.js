@@ -47,10 +47,11 @@ app.get('/action', (req, res) => {
     res.sendFile('pages/action.html', { root: serverPublic });
 });
 
+
 //Home Route
-// app.get('/home', (req, res) => {
-//     res.sendFile('pages/home.html', { root: serverPublic });
-// });
+app.get('/home', (req, res) => {
+    res.sendFile('pages/home.html', { root: serverPublic });
+});
 
 
 // Form route
