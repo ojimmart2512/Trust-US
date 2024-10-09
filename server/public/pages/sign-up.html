@@ -123,19 +123,17 @@ button {
         </div>
         <form id="sign-in-form" class="form" action="">
             <p>Please Enter Your Details</p>
-            <h1>Welcome Back</h1>
-            <!-- <label for="email">Email:</label> -->
+            <h1>Sign Up Today</h1>
             <input type="email" id="email" name="email"  placeholder="Email" required>
 
-            <!-- <label for="name">Password</label> -->
             <input type="password" id="password" name="password" placeholder="Password" required>
             
             
             
-            <button type="submit">Sign In</button>
+            <button type="submit">Sign Up</button>
 
             <div class="links">
-                <a href="/sign-up" id="signUp">Sign Up</a>
+                <a href="/sign-in" id="signIn">Sign In</a>
                 <a href="action.html" id="forgot">Forgot Password</a>
             </div>
         </form>
@@ -156,23 +154,23 @@ button {
 
 
     <script>
-    //     async function fetchUsers() {
-    //     try {
-    //       const response = await fetch("/users");
-    //       if (!response.ok) {
-    //         throw new Error("Error fetching users. Response not ok");
-    //       }
-    //       // there could be an error getting response/fetching the endpoint
-    //       console.log(response);
-    //       const users = await response.json();
-    //       // there could be an error parsing the response
-    //       // console.log(users);
-    //       return users;
-    //     } catch (error) {
-    //       console.error("There was a problem");
-    //       console.error(error);
-    //     }
-    //   }
+        async function fetchUsers() {
+        try {
+          const response = await fetch("/users");
+          if (!response.ok) {
+            throw new Error("Error fetching users. Response not ok");
+          }
+          // there could be an error getting response/fetching the endpoint
+          console.log(response);
+          const customers = await response.json();
+          // there could be an error parsing the response
+          // console.log(users);
+          return customers;
+        } catch (error) {
+          console.error("There was a problem");
+          console.error(error);
+        }
+      }
 
     //   async function renderUsers() {
     //     const tableBody = document.getElementById("userTableBody");
@@ -189,37 +187,7 @@ button {
     //   }
     //   document.addEventListener("DOMContentLoaded", renderUsers);
 
-    document
-        .getElementById("sign-in-form")
-        .addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-
-          try {
-            const response = await fetch("/login", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ email, password }),
-            });
-
-            if (!response.ok) {
-              throw new Error("User not found");
-            }
-
-            const user = await response.json();
-
-            // Save user to local storage
-            localStorage.setItem("currentUser", JSON.stringify(user));
-
-            // Redirect to user-info page
-            window.location.href = "/home";
-          } catch (error) {
-            alert("Sign-In Failed: " + error.message);
-          }
-        });
+    
     </script>
 </body>
 </html>

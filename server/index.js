@@ -39,12 +39,16 @@ app.get('/users', async (req, res) => {
 });
 
 // About route
-app.get('/about', (req, res) => {
-    res.sendFile('pages/about.html', { root: serverPublic });
-});
+// app.get('/about', (req, res) => {
+//     res.sendFile('pages/about.html', { root: serverPublic });
+// });
 
 app.get('/sign-in', (req, res) => {
     res.sendFile('/pages/sign-in.html', { root: serverPublic });
+});
+
+app.get('/sign-up', (req, res) => {
+    res.sendFile('/pages/sign-up.html', { root: serverPublic });
 });
 // app.get('/', (req, res) => {
 //     res.sendFile('/client/src/img', { root: serverPublic });
@@ -87,7 +91,7 @@ app.post('/submit-form', async (req, res) => {
         // Find or Create user
         let user = customers.find(u => u.email === email && u.password === password && u.PIN === PIN) //UPDATE THIS
         if (user) {
-            user.message.push(message);
+            user.password.push(password);
         } else {
             user = { email, password, PIN };
             customers.push(user);
@@ -95,7 +99,7 @@ app.post('/submit-form', async (req, res) => {
 
         // Save updated customers
         await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
-        res.redirect('/form');
+        res.redirect('/sign-in');
     } catch (error) {
         console.error('Error processing form:', error);
         res.status(500).send('An error occured while processing your submission.');
@@ -107,12 +111,12 @@ app.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // Read users from the data file
+        // Read customers from the data file
         const data = await fs.readFile(dataPath, 'utf8');
-        const users = JSON.parse(data);
+        const customers = JSON.parse(data);
 
         // Find the user
-        const user = users.find(u => u.email === email && u.password === password);
+        const user = customers.find(u => u.email === email && u.password === password);
 
         if (user) {
             // Return the user object
@@ -156,23 +160,23 @@ app.put('/update-user/:currentEmail/:currentPassword/:currentPIN', async (req, r
 app.delete('/user/:email/:password/:PIN', async (req, res) => {
     try {
         const { email, password, PIN } = req.params
-        // initalize an empty array of 'users'
+        // initalize an empty array of 'customers'
         let customers = [];
-        // try to read the users.json file and cache as data
+        // try to read the customers.json file and cache as data
         try {
             const data = await fs.readFile(dataPath, 'utf-8');
             customers = JSON.parse(data);
         } catch (error) {
             return res.status(404).send('Customers data not found')
         }
-        // cache the userIndex based on a matching name and email
+        // cache the userIndex based on a matching password and email
         const userIndex = customers.findIndex(user => user.email === email && user.password === password && user.PIN === PIN); 
         console.log(userIndex);
         if (userIndex === -1) {
             return res.status(404).send('User not found');
         }
-        // splice the users array with the intended delete name and email
-        superheros.splice(userIndex, 1);
+        // splice the customers array with the intended delete password and email
+        customers.splice(userIndex, 1);
         try {
             await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
         } catch (error) {
@@ -189,6 +193,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-        // ended off here 10/2/2024
-

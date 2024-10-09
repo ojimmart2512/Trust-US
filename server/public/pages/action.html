@@ -106,7 +106,7 @@
         </div>
         <div class="wrapper">
             <div class="firstForm">
-            <form action="" class="form" id="first">
+            <form action="" class="form" id="firstForm">
                 <h1>Update User</h1>
                     <p>Please Enter Your Details To <strong>Update User</strong></p>
             <!-- <label for="email">Email:</label> -->
@@ -122,8 +122,8 @@
         </div>
 
 
-            <div class="secondForm">
-            <form action="" class="form" id="secForm">
+            <div class="secForm">
+            <form action="" class="form" id="secondForm">
                 <h1>Delete User</h1>
                   <p>Please Enter Details To <strong>Delete User</strong></p>
             <!-- <label for="email">Email:</label> -->
@@ -141,7 +141,7 @@
     </div> 
 
     <script>
-        document.getElementById("first")
+        document.getElementById("firstForm")
         .addEventListener("submit", async (e) => {
           e.preventDefault();
           const currentPassword = document.getElementById("currentPassword").value;
@@ -161,14 +161,14 @@
             );
             const data = await response.json();
             console.log(data);
-            renderUsers();
+            // renderUsers();
             // alert("Message is: " + data.message);
           } catch (error) {
             alert("Error updating user: " + error.message);
           }
         });
 
-      document.getElementById("secForm")
+      document.getElementById("secondForm")
         .addEventListener("submit", async (e) => {
           e.preventDefault();
           const password = document.getElementById("delete-password").value;
@@ -182,7 +182,7 @@
             }
             const data = await response.text();
             // console.log(data);
-            renderUsers();
+            // renderUsers();
           } catch (error) {
             console.error(
               "there was a problem " +
