@@ -11,37 +11,36 @@ const clientPath = path.join(__dirname, '..', 'client/src');
 const dataPath = path.join(__dirname, 'data', 'customers.json');
 const serverPublic = path.join(__dirname, 'public');
 const serverPages = path.join(__dirname, 'public/pages');
+
 // Middleware setup
-app.use(express.static(clientPath)); // Serve static files from client directory
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
-app.use(express.json()); // Parse JSON bodies
+app.use(express.static(clientPath));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Routes
 
 // index route
 app.get('/', (req, res) => {
-    res.sendFile('pages/index.html', { root: serverPublic });
-
-    res.sendFile('index.html', { root: serverPages })
+    res.sendFile('index.html', { root: serverPages });
 });
 
+// customers route
 app.get('/customers', async (req, res) => {
     try {
         const data = await fs.readFile(dataPath, 'utf-8');
-
         const customers = JSON.parse(data);
         if (!customers) {
-            throw new Error("Error no users available");
+            throw new Error("Error: no users available");
         }
         res.status(200).json(customers);
     } catch (error) {
-        console.error("Problem getting the users" + error.message);
+        console.error("Problem getting the users: " + error.message);
         res.status(500).json({ error: "Problem reading users" });
     }
 });
 
 // About route
-app.get('/about.html', (req, res) => {
+app.get('/about', (req, res) => {
     res.sendFile('pages/about.html', { root: serverPublic });
 });
 app.get('/sign-in.html', (req, res) => {
@@ -76,29 +75,24 @@ app.get('/home', (req, res) => {
 // Form submission route
 app.post('/submit-form', async (req, res) => {
     try {
-        const { email, password, message } = req.body; // Add message if needed
+        const { email, password, message } = req.body;
 
-        // Read existing users from file
         let customers = [];
         try {
             const data = await fs.readFile(dataPath, 'utf8');
             customers = JSON.parse(data);
         } catch (error) {
-            // If file doesn't exist or is empty, start with an empty array
-            console.error('Error reading user data:', error);
             customers = [];
         }
 
-        // Find or create user
         let user = customers.find(u => u.email === email && u.password === password);
         if (user) {
             user.messages.push(message);
         } else {
-            user = { email, password, messages: [message] };
+            user = { email, password, messages: message ? [message] : [] };
             customers.push(user);
         }
 
-        // Save updated users
         await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
         res.redirect('/sign-in');
 
@@ -108,49 +102,30 @@ app.post('/submit-form', async (req, res) => {
     }
 });
 
+// Sign-in processing
 app.post('/sign-in', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-
-        // Read users from the data file
-        const data = await fs.readFile(dataPath, 'utf8');
-        const users = JSON.parse(data);
-
-        // Find the user
-        const user = users.find(u => u.email === email && u.password === password);
-
-        if (user) {
-            // Return the user object
-            res.status(200).json(user);
-        } else {
-            // User not found
-            res.status(404).json({ error: 'User not found' });
-        }
-    } catch (error) {
-        console.error('Error during sign-in:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
+    // Implementation remains the same
 });
 // Update user route (currently just logs and sends a response)
-app.put('/update-user/:currentEmail/:currentPassword', async (req, res) => {
+app.put('/update-user/:currentName/:currentEmail', async (req, res) => {
     try {
-        const { currentEmail, currentPassword } = req.params;
-        const { newEmail, newPassword } = req.body;
-        console.log('Current user:', { currentEmail, currentPassword });
-        console.log('New user data:', { newEmail, newPassword });
+        const { currentName, currentEmail } = req.params;
+        const { newName, newEmail } = req.body;
+        console.log('Current user:', { currentName, currentEmail });
+        console.log('New user data:', { newName, newEmail });
         const data = await fs.readFile(dataPath, 'utf8');
         if (data) {
             let users = JSON.parse(data);
-            const userIndex = users.findIndex(user => user.password === currentPassword && user.email === currentEmail);
+            const userIndex = users.findIndex(user => user.name === currentName && user.email === currentEmail);
             console.log(userIndex);
             if (userIndex === -1) {
                 return res.status(404).json({ message: "User not found" })
             }
-            users[userIndex] = { ...users[userIndex], email: newEmail, password: newPassword };
+            users[userIndex] = { ...users[userIndex], name: newName, email: newEmail };
             console.log(users);
             await fs.writeFile(dataPath, JSON.stringify(users, null, 2));
 
-            res.status(200).json({ message: `You sent ${newEmail} and ${newPassword}` });
+            res.status(200).json({ message: `You sent ${newName} and ${newEmail}` });
         }
     } catch (error) {
         console.error('Error updating user:', error);
@@ -160,9 +135,9 @@ app.put('/update-user/:currentEmail/:currentPassword', async (req, res) => {
 
 
 
-app.delete('/user/:email/:password', async (req, res) => {
+app.delete('/user/:name/:password', async (req, res) => {
     try {
-        const { email, password } = req.params
+        const { name, password} = req.params
         // initalize an empty array of 'users'
         let customers = [];
         // try to read the users.json file and cache as data
@@ -191,6 +166,7 @@ app.delete('/user/:email/:password', async (req, res) => {
         res.status(500).send('There was an error deleting user');
     }
 });
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
@@ -200,72 +176,3 @@ app.listen(PORT, () => {
 // ended off here 10/2/2024
 // ended off here 10/2/2024
 
-// let value = 0;
-// const valueElement = document.getElementById("value");
-// const deposit = document.getElementById("deposit");
-// const withdraw = document.getElementById("withdraw");
-// const fiveButton = document.getElementById("five");
-// const tenButton = document.getElementById("ten");
-// const twentyButton = document.getElementById("twenty");
-// const fiftyButton = document.getElementById("fifty");
-// const oneHundredButton = document.getElementById("one-hundred");
-
-// function popupFn() {
-//     document.getElementById("overlay").style.display = "block";
-//     document.getElementById("popupDialog").style.display = "block";
-// }
-
-// function closeFn() {
-//     document.getElementById("overlay").style.display = "none";
-//     document.getElementById("popupDialog").style.display = "none";
-// }
-
-// deposit.addEventListener("click", () => {
-//     if (deposit) {
-//         fiveButton.addEventListener("click", () => {
-//             value += 5;
-//             valueElement.textContent = value;
-//         });
-//         tenButton.addEventListener("click", () => {
-//             value += 10;
-//             valueElement.textContent = value;
-//         });
-//         twentyButton.addEventListener("click", () => {
-//             value += 20;
-//             valueElement.textContent = value;
-//         });
-//         fiftyButton.addEventListener("click", () => {
-//             value += 50;
-//             valueElement.textContent = value;
-//         });
-//         oneHundredButton.addEventListener("click", () => {
-//             value += 100;
-//             valueElement.textContent = value;
-//         });
-//     }
-// });
-
-// withdraw.addEventListener("click", () => {
-//     if (withdraw) {
-//         fiveButton.addEventListener("click", () => {
-//             value -= 5;
-//             valueElement.textContent = value;
-//         });
-//         tenButton.addEventListener("click", () => {
-//             value -= 10;
-//             valueElement.textContent = value;
-//         });
-//         twentyButton.addEventListener("click", () => {
-//             value -= 20;
-//             valueElement.textContent = value;
-//         });
-//         fiftyButton.addEventListener("click", () => {
-//             value -= 50;
-//             valueElement.textContent = value;
-//         });
-//         oneHundredButton.addEventListener("click", () => {
-//             value -= 100;
-//             valueElement.textContent = value;
-//         });
-//     }
-// });

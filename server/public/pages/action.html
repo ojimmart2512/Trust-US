@@ -134,16 +134,16 @@
 
 
             <div class="secondForm">
-                <form action="" class="form" id="secForm">
-                    <h1>Delete User</h1>
-                    <p>Please Enter Details To <strong>Delete User</strong></p>
-                    <!-- <label for="email">Email:</label> -->
-                    <input type="email" id="delete-email" name="email" placeholder="Email" required>
+            <form action="" class="form" id="secForm">
+                <h1>Delete User</h1>
+                  <p>Please Enter Details To <strong>Delete User</strong></p>
+            <!-- <label for="email">Email:</label> -->
+            <input type="email" id="email" name="email"  placeholder="Email" required>
 
-                    <!-- <label for="name">Password</label> -->
-                    <input type="text" id="delete-password" name="password" placeholder="Password" required>
-
-                    <button type="submit">Submit</button>
+            <!-- <label for="name">Password</label> -->
+            <input type="text" id="password" name="password" placeholder="Password" required>
+            
+            <button type="submit">Submit</button>
 
                 </form>
             </div>
@@ -151,6 +151,58 @@
         </div>
     </div>
 
+    <script>
+        document.getElementById("first")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const currentPassword = document.getElementById("currentPassword").value;
+          const currentEmail = document.getElementById("currentEmail").value;
+          const newPassword = document.getElementById("newPassword").value;
+          const newEmail = document.getElementById("newEmail").value;
+          try {
+            const response = await fetch(
+              `/update-user/${currentPassword}/${currentEmail}`,
+              {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ newPassword, newEmail }),
+              }
+            );
+            const data = await response.json();
+            console.log(data);
+            renderUsers();
+            // alert("Message is: " + data.message);
+          } catch (error) {
+            alert("Error updating user: " + error.message);
+          }
+        });
+
+      document.getElementById("secForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const password = document.getElementById("delete-password").value;
+          const email = document.getElementById("delete-email").value;
+          try {
+            const response = await fetch(`/user/${password}/${email}`, {
+              method: "DELETE",
+            });
+            if (!response.ok) {
+              throw new Error("Problem fetching delete endpoint");
+            }
+            const data = await response.text();
+            // console.log(data);
+            renderUsers();
+          } catch (error) {
+            console.error(
+              "there was a problem " +
+                error.message +
+                "retry"
+            );
+          }
+        });
+    </script>
 </body>
 <script>
     document
