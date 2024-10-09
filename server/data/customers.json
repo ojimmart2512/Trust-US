@@ -4,21 +4,6 @@
     "password": "password123"
   },
   {
-    "email": "test1@email.com",
-    "password": "Password123",
-    "messages": [
-      null,
-      null
-    ]
-  },
-  {
-    "email": "test2@email.com",
-    "password": "bljdakoedoiajdoiae",
-    "messages": [
-      null
-    ]
-  },
-  {
     "email": "teste23r3@email.com",
     "password": "diojdoajdijwad",
     "messages": [
@@ -26,11 +11,9 @@
     ]
   },
   {
-    "email": "newUser@email.com",
-    "password": "djjwoowd",
+    "email": "updatedUser@email.com",
+    "password": "updated",
     "messages": [
-      null,
-      null,
       null
     ]
   },

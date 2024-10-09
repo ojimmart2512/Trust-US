@@ -49,6 +49,13 @@ app.get('/sign-in', (req, res) => {
     res.sendFile('sign-in.html', { root: clientPath });
 });
 
+
+//Home Route
+app.get('/home', (req, res) => {
+    res.sendFile('pages/home.html', { root: serverPublic });
+});
+
+
 // Form route
 app.get('/form', (req, res) => {
     res.sendFile('pages/form.html', { root: serverPublic });
@@ -88,15 +95,65 @@ app.post('/submit-form', async (req, res) => {
 app.post('/sign-in', async (req, res) => {
     // Implementation remains the same
 });
-
-// Update user route
+// Update user route (currently just logs and sends a response)
 app.put('/update-user/:currentName/:currentEmail', async (req, res) => {
-    // Implementation remains the same
+    try {
+        const { currentName, currentEmail } = req.params;
+        const { newName, newEmail } = req.body;
+        console.log('Current user:', { currentName, currentEmail });
+        console.log('New user data:', { newName, newEmail });
+        const data = await fs.readFile(dataPath, 'utf8');
+        if (data) {
+            let users = JSON.parse(data);
+            const userIndex = users.findIndex(user => user.name === currentName && user.email === currentEmail);
+            console.log(userIndex);
+            if (userIndex === -1) {
+                return res.status(404).json({ message: "User not found" })
+            }
+            users[userIndex] = { ...users[userIndex], name: newName, email: newEmail };
+            console.log(users);
+            await fs.writeFile(dataPath, JSON.stringify(users, null, 2));
+
+            res.status(200).json({ message: `You sent ${newName} and ${newEmail}` });
+        }
+    } catch (error) {
+        console.error('Error updating user:', error);
+        res.status(500).send('An error occurred while updating the user.');
+    }
 });
 
-// Delete user route
+
+
 app.delete('/user/:name/:password', async (req, res) => {
-    // Implementation remains the same
+    try {
+        const { name, password} = req.params
+        // initalize an empty array of 'users'
+        let customers = [];
+        // try to read the users.json file and cache as data
+        try {
+            const data = await fs.readFile(dataPath, 'utf-8');
+            customers = JSON.parse(data);
+        } catch (error) {
+            return res.status(404).send('Customers data not found')
+        }
+        // cache the userIndex based on a matching name and email
+        const userIndex = customers.findIndex(user => user.name === name && user.password === password ); 
+        console.log(userIndex);
+        if (userIndex === -1) {
+            return res.status(404).send('User not found');
+        }
+        // splice the users array with the intended delete name and email
+        customers.splice(userIndex, 1);
+        try {
+            await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
+        } catch (error) {
+            console.error("Failed to write to database");
+        }
+        // send a success deleted message
+        res.send('Customer deleted successfully');
+    } catch (error) {
+        res.status(500).send('There was an error deleting user');
+    }
 });
 
 // Start the server
@@ -104,3 +161,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+        // ended off here 10/2/2024
+
