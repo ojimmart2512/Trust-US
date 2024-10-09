@@ -121,7 +121,7 @@
       <div class="logo">
         <img src="./img/trust-us-white-logo.png" alt="" />
       </div>
-      <form class="form" action="">
+      <form id="sign-in-form" class="form" action="">
         <p>Please Enter Your Details</p>
         <h1>Welcome Back</h1>
         <!-- <label for="email">Email:</label> -->
@@ -152,30 +152,35 @@
     </div>
 
     <script>
-      document
-        .getElementById("signInForm")
-        .addEventListener("submit", async (event) => {
-          event.preventDefault();
+        document
+          .getElementById("signInForm")
+          .addEventListener("submit", async (event) => {
+            event.preventDefault();
 
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-          try {
-            const response = await fetch("/sign-in", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ email, password }),
-            });
+            try {
+              const response = await fetch("/sign-in", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password }),
+              });
 
-            if (response.ok) {
-              window.location.href = "/home";
-            } else {
-              alert("Login failed. Please check your credentials.");
-            }
-          } catch (error) {
-            console.error("Error during sign-in:", error);
-          }
-        });
+      //   async function renderUsers() {
+      //     const tableBody = document.getElementById("userTableBody");
+      //     tableBody.innerHTML = "";
+      //     try {
+      //       const users = await fetchUsers();
+      //       if (Array.isArray(users) && users.length > 0) {
+      //         users.forEach((user) => {
+      //           const row = `<tr><td>${user.name}</td><td>${user.messages}</td></tr>`;
+      //           tableBody.innerHTML += row;
+      //         });
+      //       }
+      //     } catch (error) {}
+      //   }
+      //   document.addEventListener("DOMContentLoaded", renderUsers);
     </script>
   </body>
 </html>

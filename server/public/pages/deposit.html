@@ -114,7 +114,7 @@
                 <form action="">
                   <h2 class="name">Deposit</h2>
                   <div class="depo">
-                    <input
+                    <!-- <input
                       type="text"
                       id="moneyAmount"
                       placeholder="$0.00"
@@ -135,9 +135,22 @@
                       id="accountFrom"
                       placeholder="Savings Account"
                       required
-                    /><br />
-                    <button type="submit">Deposit</button
-                    ><br />
+                    /><br /> -->
+                    <button type="submit" onclick="popupFn()">Deposit</button
+                    >
+                    <div id="overlay"></div>
+		<div id="popupDialog">
+			<button id="deposit">deposit</button>
+			<button id="withdraw">withdraw</button>
+			<button id="five">$5</button>
+			<button id="ten">$10</button>
+			<button id="twenty">$20</button>
+			<button id="fifty">$50</button>
+			<button id="one-hundred">$100</button>
+
+			<button onclick="closeFn()">Close</button>
+		</div>
+                    <br />
                 </form>
               </div>
             </div>
@@ -147,7 +160,7 @@
                 <form action="">
                   <h2 class="name">Withdraw</h2>
                   <div class="depo">
-                    <input
+                    <!-- <input
                       type="text"
                       id="withdrawAmount"
                       placeholder="$0.00"
@@ -160,7 +173,7 @@
                       id="withdrawAccount"
                       placeholder="Checkings Account"
                       required
-                    /><br />
+                    /><br /> -->
                     <button type="submit">Withdraw</button><br />
                   </div>
                 </form>
@@ -208,6 +221,91 @@
         navigation.classList.toggle("active");
         main.classList.toggle("active");
       };
+
+
+      // withdraw/deposit code
+      let value = 0;
+const valueElement = document.getElementById("value");
+
+const deposit = document.getElementById("deposit");
+const withdraw = document.getElementById("withdraw");
+
+const fiveButton = document.getElementById("five");
+const tenButton = document.getElementById("ten");
+const twentyButton = document.getElementById("twenty");
+const fiftyButton = document.getElementById("fifty");
+const oneHundredButton = document.getElementById("one-hundred");
+
+
+
+function popupFn() {
+	document.getElementById(
+		"overlay"
+	).style.display = "block";
+	document.getElementById(
+		"popupDialog"
+	).style.display = "block";
+}
+
+function closeFn() {
+	document.getElementById(
+		"overlay"
+	).style.display = "none";
+	document.getElementById(
+		"popupDialog"
+	).style.display = "none";
+}
+
+deposit.addEventListener("click", () => {
+	if (deposit) {
+		fiveButton.addEventListener("click", () => {
+			value += 5;
+			valueElement.textContent = value;
+		})
+		tenButton.addEventListener("click", () => {
+			value += 10;
+			valueElement.textContent = value;
+		})
+		twentyButton.addEventListener("click", () => {
+			value += 20;
+			valueElement.textContent = value;
+		})
+		fiftyButton.addEventListener("click", () => {
+			value += 50;
+			valueElement.textContent = value;
+		})
+		oneHundredButton.addEventListener("click", () => {
+			value += 100;
+			valueElement.textContent = value;
+		})
+	}
+});
+
+
+withdraw.addEventListener("click", () => {
+	if (withdraw) {
+		fiveButton.addEventListener("click", () => {
+			value -= 5;
+			valueElement.textContent = value;
+		})
+		tenButton.addEventListener("click", () => {
+			value -= 10;
+			valueElement.textContent = value;
+		})
+		twentyButton.addEventListener("click", () => {
+			value -= 20;
+			valueElement.textContent = value;
+		})
+		fiftyButton.addEventListener("click", () => {
+			value -= 50;
+			valueElement.textContent = value;
+		})
+		oneHundredButton.addEventListener("click", () => {
+			value -= 100;
+			valueElement.textContent = value;
+		})
+	}
+})
     </script>
   </body>
 </html>
