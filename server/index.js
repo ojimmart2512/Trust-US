@@ -103,7 +103,7 @@ app.post('/submit-form', async (req, res) => {
 });
 
 // sign in
-app.post('/sign-in', async (req, res) => {
+app.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
 
