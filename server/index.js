@@ -73,7 +73,7 @@ app.get('/form', (req, res) => {
 // Form Submission Route
 app.post('/submit-form', async (req, res) => {
     try {
-        const { name, password, PIN } = req.body; //UPDATE THIS
+        const { email, password, PIN } = req.body; //UPDATE THIS
         let customers = [];
         try {
             const data = await fs.readFile(dataPath, 'utf-8');
@@ -85,11 +85,11 @@ app.post('/submit-form', async (req, res) => {
         }
 
         // Find or Create user
-        let user = customers.find(u => u.name === name && u.password === password && u.PIN === PIN) //UPDATE THIS
+        let user = customers.find(u => u.email === email && u.password === password && u.PIN === PIN) //UPDATE THIS
         if (user) {
             user.message.push(message);
         } else {
-            user = { name, password, PIN };
+            user = { email, password, PIN };
             customers.push(user);
         }
 
@@ -105,14 +105,14 @@ app.post('/submit-form', async (req, res) => {
 // sign in
 app.post('/sign-in', async (req, res) => {
     try {
-        const { name, email } = req.body;
+        const { email, password } = req.body;
 
         // Read users from the data file
         const data = await fs.readFile(dataPath, 'utf8');
         const users = JSON.parse(data);
 
         // Find the user
-        const user = users.find(u => u.name === name && u.email === email);
+        const user = users.find(u => u.email === email && u.password === password);
 
         if (user) {
             // Return the user object
@@ -128,34 +128,34 @@ app.post('/sign-in', async (req, res) => {
 });
 
 //update user route (currently just logs and sends a response)
-app.put('/update-user/:currentName/:currentPassword/:currentPIN', async (req, res) => {
+app.put('/update-user/:currentEmail/:currentPassword/:currentPIN', async (req, res) => {
     try {
-        const { currentName, currentPassword, currentPIN } = req.params;
-        const { newName, newPassword, newPIN } = req.body;
-        console.log('Current Customers:', { currentName, currentPassword, currentPIN });
-        console.log('New user data:', { newName, newPassword, newPIN });
+        const { currentEmail, currentPassword, currentPIN } = req.params;
+        const { newEmail, newPassword, newPIN } = req.body;
+        console.log('Current Customers:', { currentEmail, currentPassword, currentPIN });
+        console.log('New user data:', { newEmail, newPassword, newPIN });
         const data = await fs.readFile(dataPath, 'utf8');
         if (data) {
             let customers = JSON.parse(data);
-            const userIndex = customers.findIndex(user => user.name === currentName && user.superPassword === currentPassword && user.PIN === currentPIN);
+            const userIndex = customers.findIndex(user => user.email === currentEmail && user.currentPassword === currentPassword && user.PIN === currentPIN);
             console.log(userIndex);
             if (userIndex === -1) {
                 return res.status(404).json({ message: "Customer not found" })
             }
-            customers[userIndex] = { ...customers[userIndex], name: newName, password: newPassword, PIN: newPIN };
+            customers[userIndex] = { ...customers[userIndex], email: newEmail, password: newPassword, PIN: newPIN };
             console.log(customers);
             await fs.writeFile(dataPath, JSON.stringify(customers, null, 2));
 
-            res.status(200).json({ message: `You sent ${newName} and ${newPassword} and ${newPIN}` });
+            res.status(200).json({ message: `You sent ${newEmail} and ${newPassword} and ${newPIN}` });
         }
     } catch (error) {
         console.error('Error updating user:', error);
         res.status(500).send('An error occurred while updating the customer.');
     }
 });
-app.delete('/user/:name/:password/:PIN', async (req, res) => {
+app.delete('/user/:email/:password/:PIN', async (req, res) => {
     try {
-        const { name, password, PIN } = req.params
+        const { email, password, PIN } = req.params
         // initalize an empty array of 'users'
         let customers = [];
         // try to read the users.json file and cache as data
@@ -166,7 +166,7 @@ app.delete('/user/:name/:password/:PIN', async (req, res) => {
             return res.status(404).send('Customers data not found')
         }
         // cache the userIndex based on a matching name and email
-        const userIndex = customers.findIndex(user => user.name === name && user.password === password && user.PIN === PIN); 
+        const userIndex = customers.findIndex(user => user.email === email && user.password === password && user.PIN === PIN); 
         console.log(userIndex);
         if (userIndex === -1) {
             return res.status(404).send('User not found');

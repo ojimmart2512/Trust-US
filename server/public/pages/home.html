@@ -525,7 +525,7 @@ font-weight: 500;
                   </li>
 
                   <li>
-                    <a href="">
+                    <a href="/sign-in">
                       <span class="icon">
                         <i class='bx bx-chevron-right logoutButton'></i>
                       </span>
@@ -684,6 +684,12 @@ font-weight: 500;
 
             
         };
+
+    
+      // Logout functionality
+        document.querySelector(".logoutButton").addEventListener("click", () => {
+        window.location.href = "/sign-in";
+      });
     </script>
 </body>
 </html>
